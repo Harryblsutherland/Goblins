@@ -62,7 +62,9 @@ GameObject:
   - component: {fileID: 135133942919043632}
   - component: {fileID: 195402664227366550}
   - component: {fileID: 114541286608897484}
-  - component: {fileID: 114201987589238332}
+  - component: {fileID: 114690675168708806}
+  - component: {fileID: 114875446117642850}
+  - component: {fileID: 114616856644018886}
   m_Layer: 0
   m_Name: Drone Unit
   m_TagString: Untagged
@@ -172,6 +174,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23373212219433324
 MeshRenderer:
@@ -203,6 +206,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23547655152035546
 MeshRenderer:
@@ -217,7 +221,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b23039b2972e1fd43a1ae0208e135939, type: 2}
+  - {fileID: 2100000, guid: 18a17c28ace466946a76d04c25c0eb70, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,6 +238,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23850012241559528
 MeshRenderer:
@@ -266,6 +271,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33431960671879950
 MeshFilter:
@@ -321,17 +327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 0, z: 30}
---- !u!114 &114201987589238332
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1580995016019966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed420a2a1a2e4b48b0c7ea7fbdb0d67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114514871494770418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,7 +335,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580995016019966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92feac52c479b8146972f140272cb5a6, type: 3}
+  m_Script: {fileID: 11500000, guid: e4152263a3be6c44281973920d0f0c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Swap: 0
@@ -352,12 +347,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580995016019966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f7548495af6fd24289f6375461eac8d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cc0b4e6343826640b4c550a5d14beb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Renderers:
   - {fileID: 23373212219433324}
   - {fileID: 23178847982193354}
+--- !u!114 &114616856644018886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05a0353fe136fd40a886e4395a010fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonIcon: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
+  GhostbuildingPrefab: {fileID: 1826323997557880, guid: c721c3508e414db41b67777194247605,
+    type: 2}
+--- !u!114 &114690675168708806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b54e1573bc0c0947ab5678bfbb16c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114713936883040992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,6 +390,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayItem: {fileID: 1336012790632708}
+--- !u!114 &114875446117642850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dffb1d137fb3a548bad4a476a0e4c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Drone
+  MaxHealth: 100
+  CurrentHealth: 100
+  PortraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
 --- !u!135 &135133942919043632
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -389,6 +424,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1580995016019966}
   m_Enabled: 1
+  m_AgentTypeID: 0
   m_Radius: 3.46
   m_Speed: 15
   m_Acceleration: 60
