@@ -7,11 +7,20 @@ public class ShowUnitInfo : Interaction
 
     public string Name;
     public float MaxHealth, CurrentHealth;
+    bool show = false;
 
     public Sprite PortraitImage;
 
     public override void Select()
     {
+        show = true;
+    }
+    void Update()
+    {
+        if (!show)
+        {
+            return;
+        }
         InfoManager.Current.SetImage(PortraitImage);
         InfoManager.Current.SetLines(
                                     Name,
@@ -21,6 +30,7 @@ public class ShowUnitInfo : Interaction
     }
     public override void Deselect()
     {
+        show = false;
         InfoManager.Current.Clearbox();
     }
 

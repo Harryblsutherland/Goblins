@@ -1,10 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MouseManager : MonoBehaviour {
-    public static MouseManager Current;
 
-	private List<Interactive> Selections = new List<Interactive>();
+    public static MouseManager Current;
+    private bool isShiftDown;
+    private Rect Box;
+
+    private Vector2 boxStart = Vector2.zero;
+    private Vector2 boxEnd = Vector2.zero;
+    private List<Interactive> NewSelections = new List<Interactive>();
+
+
+    private List<Interactive> Selections = new List<Interactive>();
 
     private MouseManager()
     {
@@ -12,34 +21,124 @@ public class MouseManager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-		if (!Input.GetMouseButtonDown (0))
-			return;
 
-		var es = UnityEngine.EventSystems.EventSystem.current;
-		if (es != null && es.IsPointerOverGameObject ())
-			return;
+        SingleUnitSelected();
 
-		if (Selections.Count > 0) {
-			if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
-			{
-				foreach(var sel in Selections)
-				{
-					if (sel != null) sel.Deselect();
-				}
-				Selections.Clear();
-			}
-		}
+        CreateBox();
 
-		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit hit;
-		if (!Physics.Raycast (ray, out hit))
-			return;
+        if (Selections.Count > 0 && NewSelections.Count > 0)
+        {
+            if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+            {
+                foreach (var sel in Selections)
+                {
+                    if (sel != null) sel.Deselect();
+                }
+                Selections.Clear();
+            }
+        }
+        foreach (var unit in NewSelections)
+        {
+            Selections.Add(unit);
+            unit.Select();
+        }
+        NewSelections.Clear();
+    }
+    private void SingleUnitSelected()
+    {
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            var es = UnityEngine.EventSystems.EventSystem.current;
+            if (es != null && es.IsPointerOverGameObject())
+                return;
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (!Physics.Raycast(ray, out hit))
+            {
+                return;
+            }
+            var interact = hit.transform.GetComponent<Interactive>();
+            if (interact == null)
+            {
+                return;
+            }
+            NewSelections.Add(interact);
+        }
+    }
+    private void CreateBox()
+    {
 
-		var interact = hit.transform.GetComponent<Interactive> ();
-		if (interact == null)
-			return;
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                boxStart = Input.mousePosition;
+            }
+            boxEnd = Input.mousePosition;
 
-		Selections.Add (interact);
-		interact.Select ();
-	}
+            Box = new Rect(
+                         boxStart.x,
+                         Screen.height - boxStart.y,
+                         boxEnd.x - boxStart.x,
+                         -1 * (boxEnd.y - boxStart.y)
+                         );
+
+        }
+        else
+        {
+            if (boxEnd != Vector2.zero && boxStart != Vector2.zero)
+            {
+                HandleUnitSelection();
+             
+            }
+            boxStart = Vector2.zero;
+            boxEnd = Vector2.zero; 
+        }
+    }
+    private void HandleUnitSelection()
+    {
+        
+        if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+        {
+            foreach (var sel in Selections)
+            {
+                if (sel != null) sel.Deselect();
+            }
+            Selections.Clear();
+        }
+        var square = Utilities.GetViewportBounds(Camera.main, boxStart, boxEnd);
+        foreach (var player in RtsManager.Current.Players)
+        {
+
+            if (player.IsAi == false)
+            {
+                foreach (var unit in player.ActiveUnits)
+                {
+                    if (!square.Contains(Camera.main.WorldToViewportPoint(unit.transform.position)))
+                    {
+                        continue;
+                    }
+                    var interact = unit.GetComponent<Interactive>();
+                    if (interact == null)
+                    {
+                        continue;
+                    }
+                    NewSelections.Add(interact);
+
+                }
+            }
+        }
+        
+    }
+
+    private void OnGUI()
+    {
+        if (boxStart == Vector2.zero & boxEnd == Vector2.zero)
+        {
+            return;
+        }
+
+        Utilities.DrawScreenRect(Box, new Color(0.8f, 0.8f, 0.95f, 0.25f));
+        Utilities.DrawScreenRectBorder(Box, 2, new Color(0.0f, 0.8f, 0.95f));
+    }
 }

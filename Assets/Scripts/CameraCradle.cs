@@ -10,7 +10,19 @@ public class CameraCradle : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        foreach ( var player in RtsManager.Current.Players)
+        {
+            if (player.IsAi)
+            {
+                continue;
+            }
 
+            var pos = player.Location.position;
+            pos.y = 80;
+            pos.z -= 50;
+
+            transform.position = pos;
+        }
     }
 
     // Update is called once per frame

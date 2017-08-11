@@ -8,7 +8,7 @@ using UnityEngine;
  public class RightClickNavigation : Interaction {
 
     public float RelaxDistance = 5;
-
+    private CommandManager commandManager;
     private NavMeshAgent agent;
     private Vector3 target = Vector3.zero;
     private bool selected = false;
@@ -23,36 +23,56 @@ using UnityEngine;
     {
         selected = true;
     }
+    public void SendToTarget(Vector3 pos)
+    {
+        target = pos;
+        SendToTarget();
+    }
     public void SendToTarget()
     {
         agent.SetDestination(target);
-        agent.Resume();
+        agent.isStopped = false;
         isActive = true;
     }
 
 
     // Use this for initialization
     void Start () {
+
+        commandManager = GetComponent<CommandManager>();
         agent = GetComponent<NavMeshAgent>();
 
-		
-	}
-	
-	// Update is called once per frame
+    }
+		// Update is called once per frame
 	void Update () {
-		if (selected && Input.GetMouseButtonDown(1))
+        if (selected && Input.GetKey(KeyCode.P))
         {
-            var tempTarget = RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition);
-            if (tempTarget.HasValue)
+            
+            Vector3 tempTarget = (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition);
+            if ((!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift) && commandManager.commandQueue.Count > 0))
             {
-                target = tempTarget.Value;
-                SendToTarget();
+                commandManager.FlushList();
             }
+
+
+            commandManager.commandQueue.Add(new Cmd_Patrol(tempTarget, commandManager, agent));
         }
-        if (isActive && Vector3.Distance(target, transform.position) < RelaxDistance)
+
+
+
+        if (selected && Input.GetMouseButtonDown(1))
         {
-            agent.Stop();
-            isActive = false;
+            var commandmanager = GetComponent<CommandManager>();
+            
+            Vector3 tempTarget = (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition);
+            if ((!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift) && commandmanager.commandQueue.Count > 0))
+            {
+                commandmanager.FlushList();
+            }
+
+                      
+            commandmanager.commandQueue.Add(new Cmd_Move(tempTarget,commandmanager,agent));
+
         }
 	}
 }

@@ -11,7 +11,11 @@ public class RtsManager : MonoBehaviour {
 
 	public TerrainCollider MapCollider;
 
-	public Vector3? ScreenPointToMapPosition(Vector2 point)
+    public RtsManager()
+    {
+        Current = this;
+    }
+    public Vector3? ScreenPointToMapPosition(Vector2 point)
 	{
 		var ray = Camera.main.ScreenPointToRay (point);
 		RaycastHit hit;
@@ -55,7 +59,6 @@ public class RtsManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Current = this;
 		foreach (var p in Players) {
 			foreach (var u in p.StartingUnits)
 			{
@@ -72,7 +75,7 @@ public class RtsManager : MonoBehaviour {
 			}
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	

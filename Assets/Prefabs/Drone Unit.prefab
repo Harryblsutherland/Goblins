@@ -65,6 +65,10 @@ GameObject:
   - component: {fileID: 114690675168708806}
   - component: {fileID: 114875446117642850}
   - component: {fileID: 114616856644018886}
+  - component: {fileID: 114187383616146390}
+  - component: {fileID: 114770243234889952}
+  - component: {fileID: 114681995551392778}
+  - component: {fileID: 114124631166649126}
   m_Layer: 0
   m_Name: Drone Unit
   m_TagString: Untagged
@@ -327,6 +331,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 0, z: 30}
+--- !u!114 &114124631166649126
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0c9588cec4e434e995a5c118ba0359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114187383616146390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd985e2871716134cb60d78a859b505f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RelaxDistance: 5
 --- !u!114 &114514871494770418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -365,8 +392,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ButtonIcon: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
-  GhostbuildingPrefab: {fileID: 1826323997557880, guid: c721c3508e414db41b67777194247605,
+  buildingCost: 200
+  buildingPrefab: {fileID: 1711865537636562, guid: 0bd7fbfb997203c48ae626fb9d58d1fd,
     type: 2}
+  maxBuildDistance: 60
+  GhostbuildingPrefab: {fileID: 165228, guid: bdb460add5b66f54f87ded122b378ccc, type: 2}
+--- !u!114 &114681995551392778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbb7e633fcaf3de4b9c44ab2bef43e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Corpse: {fileID: 0}
 --- !u!114 &114690675168708806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -390,6 +432,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayItem: {fileID: 1336012790632708}
+--- !u!114 &114770243234889952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f4355f7e1bbb143b3dab527fdde6de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponHit: {fileID: 1903846109274984, guid: 40f1cf55d5b0a634dbe9a1ddba75fc6e, type: 2}
+  findTargetDelay: 0.62
+  attackRange: 24.4
+  attackSpeed: 0.15
+  attackDamage: 1
+  player:
+    Name: 
+    Location: {fileID: 0}
+    AccentColor: {r: 0, g: 0, b: 0, a: 0}
+    StartingUnits: []
+    IsAi: 0
+    Credits: 0
+  findTargetCounter: 0
+  attackCounter: 0
 --- !u!114 &114875446117642850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -401,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dffb1d137fb3a548bad4a476a0e4c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Drone
+  Name: Goblin
   MaxHealth: 100
   CurrentHealth: 100
   PortraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
@@ -427,7 +494,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 3.46
   m_Speed: 15
-  m_Acceleration: 60
+  m_Acceleration: 1000
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
