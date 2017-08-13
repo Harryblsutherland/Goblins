@@ -11,9 +11,19 @@ public class MouseManager : MonoBehaviour {
     private Vector2 boxStart = Vector2.zero;
     private Vector2 boxEnd = Vector2.zero;
     private List<Interactive> NewSelections = new List<Interactive>();
+    private List<Interactive> selections = new List<Interactive>();
 
-
-    private List<Interactive> Selections = new List<Interactive>();
+    public List<Interactive> Selections
+    {
+        get
+        {
+            return selections;
+        }
+        set
+        {
+            selections = value;
+        }
+    }
 
     private MouseManager()
     {
@@ -23,26 +33,31 @@ public class MouseManager : MonoBehaviour {
 	void Update () {
 
         SingleUnitSelected();
-
         CreateBox();
+        addNewselections(NewSelections);
+        NewSelections.Clear();
 
-        if (Selections.Count > 0 && NewSelections.Count > 0)
+
+    }
+    public void addNewselections(List<Interactive> prNewSelections)
+    {
+        if (selections.Count > 0 && prNewSelections.Count > 0)
         {
             if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
             {
-                foreach (var sel in Selections)
+                foreach (var sel in selections)
                 {
                     if (sel != null) sel.Deselect();
                 }
-                Selections.Clear();
+                selections.Clear();
             }
         }
-        foreach (var unit in NewSelections)
+        foreach (var unit in prNewSelections)
         {
-            Selections.Add(unit);
+            selections.Add(unit);
             unit.Select();
         }
-        NewSelections.Clear();
+
     }
     private void SingleUnitSelected()
     {
@@ -100,11 +115,11 @@ public class MouseManager : MonoBehaviour {
         
         if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
         {
-            foreach (var sel in Selections)
+            foreach (var sel in selections)
             {
                 if (sel != null) sel.Deselect();
             }
-            Selections.Clear();
+            selections.Clear();
         }
         var square = Utilities.GetViewportBounds(Camera.main, boxStart, boxEnd);
         foreach (var player in RtsManager.Current.Players)
