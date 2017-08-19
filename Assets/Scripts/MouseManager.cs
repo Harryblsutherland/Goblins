@@ -34,34 +34,34 @@ public class MouseManager : MonoBehaviour {
 
         SingleUnitSelected();
         CreateBox();
-        addNewselections(NewSelections);
+        addNewselections(NewSelections,selections);
         NewSelections.Clear();
 
 
     }
-    public void addNewselections(List<Interactive> prNewSelections)
+    public void addNewselections(List<Interactive> prNewSelections,List<Interactive> prCurrentSelections)
     {
-        if (selections.Count > 0 && prNewSelections.Count > 0)
+        if (prCurrentSelections.Count > 0 && prNewSelections.Count > 0)
         {
             if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
             {
-                foreach (var sel in selections)
+                foreach (var sel in prCurrentSelections)
                 {
                     if (sel != null) sel.Deselect();
                 }
-                selections.Clear();
+                prCurrentSelections.Clear();
             }
         }
         foreach (var unit in prNewSelections)
         {
-            selections.Add(unit);
+            prCurrentSelections.Add(unit);
             unit.Select();
         }
 
     }
     private void SingleUnitSelected()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             var es = UnityEngine.EventSystems.EventSystem.current;
             if (es != null && es.IsPointerOverGameObject())

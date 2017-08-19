@@ -8,12 +8,6 @@ public class CommandManager : MonoBehaviour {
 
     private Command currentCommand;
     public List<Command> commandQueue = new List<Command>();
-     
-	// Use this for initialization
-	void Start ()
-    {
-        
-	}
 
     public void FlushList()
     {

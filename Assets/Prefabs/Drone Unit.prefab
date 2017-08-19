@@ -446,8 +446,8 @@ MonoBehaviour:
   weaponHit: {fileID: 1903846109274984, guid: 40f1cf55d5b0a634dbe9a1ddba75fc6e, type: 2}
   findTargetDelay: 0.62
   attackRange: 24.4
-  attackSpeed: 0.15
-  attackDamage: 1
+  attackSpeed: 1
+  attackDamage: 10
   player:
     Name: 
     Location: {fileID: 0}

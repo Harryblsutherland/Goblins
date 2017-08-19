@@ -37,13 +37,13 @@ public class ControlGroupManager : MonoBehaviour
         {
             for (var i = 0; i < numbers.Count; i++)
             {
-                Debug.Log(numbers[i].ToString());
                 if (Input.GetKeyDown(numbers[i]))
                 {
-                    foreach (var unit in mouseManager.Selections)
-                    {
-                        controlGroups[i].Add(unit);
-                    }
+                    mouseManager.addNewselections(mouseManager.Selections , controlGroups[i]);
+                    //foreach (var unit in mouseManager.Selections)
+                    //{
+                    //    controlGroups[i].Add(unit);
+                    //}
                 }
                 
 
@@ -55,7 +55,7 @@ public class ControlGroupManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(numbers[i]))
                 {
-                    mouseManager.addNewselections(controlGroups[i]);
+                    mouseManager.addNewselections(controlGroups[i],mouseManager.Selections);
                 }
             }
         }
