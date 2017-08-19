@@ -35,10 +35,34 @@ public class MouseManager : MonoBehaviour {
         SingleUnitSelected();
         CreateBox();
         addNewselections(NewSelections,selections);
+        checkforDeselection();
         NewSelections.Clear();
 
 
     }
+
+    private void checkforDeselection()
+    {
+        if(NewSelections.Count == 0 && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (!Physics.Raycast(ray, out hit))
+            {
+                return;
+            }
+            var terrain = hit.transform.GetComponent<Terrain>();
+            if (terrain == null)
+            {
+                foreach (var sel in selections)
+                {
+                    if (sel != null) sel.Deselect();
+                }
+                selections.Clear();
+            }
+        }
+    }
+
     public void addNewselections(List<Interactive> prNewSelections,List<Interactive> prCurrentSelections)
     {
         if (prCurrentSelections.Count > 0 && prNewSelections.Count > 0)
@@ -113,14 +137,14 @@ public class MouseManager : MonoBehaviour {
     private void HandleUnitSelection()
     {
         
-        if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
-        {
-            foreach (var sel in selections)
-            {
-                if (sel != null) sel.Deselect();
-            }
-            selections.Clear();
-        }
+        //if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
+        //{
+        //    foreach (var sel in selections)
+        //    {
+        //        if (sel != null) sel.Deselect();
+        //    }
+        //    selections.Clear();
+        //}
         var square = Utilities.GetViewportBounds(Camera.main, boxStart, boxEnd);
         foreach (var player in RtsManager.Current.Players)
         {
