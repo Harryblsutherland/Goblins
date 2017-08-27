@@ -21,16 +21,16 @@ public class AIB_CreateBase : AIBehaviour {
 
     public override void Execute()
     {
-        Debug.Log("creating Base");
+       // Debug.Log("creating Base");
 
         var go = Instantiate(buildingPrefab);
         go.AddComponent<Player>().Info = support.Player;
 
-        foreach (var drone in support.goblins)
+        foreach (var goblin in support.goblins)
         {
                 for (int i = 0;i < attemptsPerDrone; i++)
             {
-                var pos = drone.transform.position;
+                var pos = goblin.transform.position;
                 pos += UnityEngine.Random.insideUnitSphere * buildingRange;
                 pos.y = Terrain.activeTerrain.SampleHeight(pos);
 

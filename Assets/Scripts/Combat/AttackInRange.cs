@@ -1,65 +1,79 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class AttackInRange : MonoBehaviour {
+public class AttackInRange : MonoBehaviour
+{
 
     public GameObject weaponHit;
+    public List<Weapon> Weapons = new List<Weapon>();
     public float findTargetDelay = 1;
     public float attackRange = 20;
     public float attackSpeed = 0.25f;
     public float attackDamage = 1;
 
-    private ShowUnitInfo target;
+
+    private UnitInfo target;
     public PlayerSetupDefinition player;
     public float findTargetCounter = 0;
     public float attackCounter = 0;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         player = GetComponent<Player>().Info;
-
-	}
+        Weapons = GetComponents<Weapon>().Cast<Weapon>().ToList();
+    }
     void FindTarget()
     {
-        if (target != null)
+        foreach (var Weapon in Weapons)
         {
-            return;
-        }
-        foreach (var _player in RtsManager.Current.Players)
-        {
-            if (_player == player)
+            if (Weapon.Target != null)
             {
                 continue;
             }
-            foreach (var unit in _player.ActiveUnits)
+
+            foreach (var _player in RtsManager.Current.Players)
             {
-                if (Vector3.Distance(unit.transform.position, transform.position) < attackRange)
+                if (_player == player)
                 {
-                    target = unit.GetComponent<ShowUnitInfo>();
-                    return;
+                    continue;
+                }
+                foreach (var unit in _player.ActiveUnits)
+                {
+                    if (Vector3.Distance(unit.transform.position, transform.position) < Weapon.range)
+                    {
+                        Weapon.Target = unit.GetComponent<UnitInfo>();
+                        Debug.Log("targetFound");
+
+                        continue;
+                    }
                 }
             }
         }
     }
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
 
     void Attack()
     {
-        if (target == null)
+        foreach (var weapon in Weapons)
         {
-            return;
+            if (weapon.Target == null)
+            {
+                return;
+            }
+            if (Vector3.Distance(weapon.Target.transform.position, transform.position) > attackRange)
+            {
+                weapon.Target = null;
+                return;
+            }
+           
+            weapon.Attack();
         }
-        if (Vector3.Distance(target.transform.position, transform.position) > attackRange)
-        {
-            target = null;
-            return;
-        }
-        target.CurrentHealth -= attackDamage;
-        GameObject.Instantiate(weaponHit, target.transform.position, Quaternion.identity);
     }
-    void Update ()
+    void Update()
     {
         findTargetCounter += Time.deltaTime;
         if (findTargetCounter > findTargetDelay)
@@ -68,10 +82,10 @@ public class AttackInRange : MonoBehaviour {
             findTargetCounter = 0;
         }
         attackCounter += Time.deltaTime;
-        if(attackCounter > attackSpeed)
+        if (attackCounter > attackSpeed)
         {
             Attack();
             attackCounter = 0;
         }
-	}
+    }
 }

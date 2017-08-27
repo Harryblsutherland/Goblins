@@ -13,7 +13,7 @@ public class AIB_AttackWave : AIBehaviour  {
     public override void Execute()
     {
         var ai = aiSupport.GetSupport(this.gameObject);
-        Debug.Log(ai.Player.Name + "is moving to attack");
+       // Debug.Log(ai.Player.Name + "is moving to attack");
         int wave = (int)(ai.goblins.Count * attackWaveSize);
         unitsRequired += increasePerWave;
     

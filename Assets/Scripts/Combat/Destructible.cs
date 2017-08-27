@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour {
 
-    private ShowUnitInfo info;
+    private UnitInfo info;
     public GameObject Corpse;
     // Use this for initialization
     void Start()
     {
-        info = GetComponent<ShowUnitInfo>();
+        info = GetComponent<UnitInfo>();
 
     }
 

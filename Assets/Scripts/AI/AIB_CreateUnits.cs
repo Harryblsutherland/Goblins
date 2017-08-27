@@ -12,7 +12,7 @@ public class AIB_CreateUnits : AIBehaviour
 
     public override void Execute()
     {
-        Debug.Log("Creating a drone.");
+        //Debug.Log("Creating a drone.");
         var bases = support.warrens;
         var index = UnityEngine.Random.Range(0, bases.Count);
         var BuildingStructure = bases[index];

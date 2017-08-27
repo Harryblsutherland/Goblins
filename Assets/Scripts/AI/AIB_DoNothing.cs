@@ -9,7 +9,7 @@ public class AIB_DoNothing : AIBehaviour
 
     public override void Execute()
     {
-        Debug.Log("DoingNothing");
+      //  Debug.Log("DoingNothing");
     }
 
     public override float GetWeight()

@@ -11,7 +11,6 @@ public class Cmd_Patrol : Command {
     private Vector3 pointA;
     private Vector3 pointB;
     private NavMeshAgent agent;
-    private CommandManager commandManager;
 
     public Cmd_Patrol(Vector3 prPoint, CommandManager prCommandManager, NavMeshAgent prAgent)
     {
@@ -19,6 +18,11 @@ public class Cmd_Patrol : Command {
         commandManager = prCommandManager;
         pointA = prPoint;
     }
+
+    public override void Delete()
+    {
+    }
+
     public override void Execute()
     {
         pointB = commandManager.transform.position;
@@ -26,7 +30,12 @@ public class Cmd_Patrol : Command {
         agent.isStopped = false;
     }
 
-    public override void CommandUpdate()
+    public override void Pause()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override void Update()
     {
         var distancetoA = Vector3.Distance(pointA, commandManager.transform.position);
         var distancetoB = Vector3.Distance(pointB, commandManager.transform.position);

@@ -9,7 +9,7 @@ public class Cmd_Move : Command {
     public float relaxDistance = 5f;
     public Vector3 destination;
     private NavMeshAgent agent;
-    private CommandManager commandManager;
+    
 
     public Cmd_Move(Vector3 prPoint, CommandManager prCommandManager, NavMeshAgent prAgent)
     {
@@ -17,13 +17,24 @@ public class Cmd_Move : Command {
         commandManager = prCommandManager;
         destination = prPoint;
     }
+
+    public override void Delete()
+    {
+        
+    }
+
     public override void Execute()
     {
         agent.SetDestination(destination);
         agent.isStopped = false;
     }
 
-    public override void CommandUpdate ()
+    public override void Pause()
+    {
+        agent.isStopped = true;
+    }
+
+    public override void Update ()
     {
         var distance = Vector3.Distance(destination, commandManager.transform.position);
         

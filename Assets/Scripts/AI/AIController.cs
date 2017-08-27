@@ -54,7 +54,7 @@ public class AIController : MonoBehaviour {
                 bestAI = ai;
             }
         }
-        Debug.Log(ailog);
+        //Debug.Log(ailog);
         bestAI.Execute();
         waited = 0;
 

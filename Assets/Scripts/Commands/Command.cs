@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Command{
+public abstract class Command
 
-     public abstract void Execute();
-
-    public abstract void CommandUpdate();
-
-
+{
+    private bool paused;
+    public CommandManager commandManager;
+    public abstract void Pause();
+    public abstract void Execute();
+    public abstract void Update();
+    public abstract void Delete();
 
 }

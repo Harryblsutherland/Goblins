@@ -18,11 +18,11 @@ public class aiSupport : MonoBehaviour {
         warrens.Clear();
         foreach (var unit in Player.ActiveUnits)
         {
-            if (unit.GetComponent<ShowUnitInfo>().Name.Contains("Goblin"))
+            if (unit.GetComponent<UnitInfo>().Name.Contains("Goblin"))
             {
                 goblins.Add(unit);
             }
-            if (unit.GetComponent<ShowUnitInfo>().Name.Contains("Warren"))
+            if (unit.GetComponent<UnitInfo>().Name.Contains("Warren"))
             {
                 warrens.Add(unit);
             }
