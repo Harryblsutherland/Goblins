@@ -43,7 +43,6 @@ public class CreateBuildingAction : ActionBehaviour
     private void OnDestroy()
     {
         if (active == null) return;
-
         Destroy(active);
     }
 }

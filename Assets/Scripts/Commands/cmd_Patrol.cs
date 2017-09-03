@@ -4,38 +4,37 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 using UnityEngine;
 
-public class Cmd_Patrol : Command {
-
+public class Cmd_Patrol : Command
+{
 
     public float relaxDistance = 2f;
-    private Vector3 pointA;
+    public Vector3 pointA;
     private Vector3 pointB;
     private NavMeshAgent agent;
+    /// <summary>
+    /// this command will move between the two given points indefinitely. it enables targeting.
+    /// </summary>
 
-    public Cmd_Patrol(Vector3 prPoint, CommandManager prCommandManager, NavMeshAgent prAgent)
+    public override void Awake()
     {
-        agent = prAgent;
-        commandManager = prCommandManager;
-        pointA = prPoint;
-    }
-
-    public override void Delete()
-    {
+        base.Awake();
+        agent = GetComponent<NavMeshAgent>();
+        pointB = commandManager.transform.position;
     }
 
     public override void Execute()
     {
-        pointB = commandManager.transform.position;
+        
         agent.SetDestination(pointA);
         agent.isStopped = false;
     }
 
     public override void Pause()
     {
-        throw new NotImplementedException();
+        agent.isStopped = true;
     }
 
-    public override void Update()
+    public override void CommandUpdate()
     {
         var distancetoA = Vector3.Distance(pointA, commandManager.transform.position);
         var distancetoB = Vector3.Distance(pointB, commandManager.transform.position);
@@ -49,5 +48,8 @@ public class Cmd_Patrol : Command {
             agent.SetDestination(pointA);
             agent.isStopped = false;
         }
+    }
+    public override void Delete()
+    {
     }
 }

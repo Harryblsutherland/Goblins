@@ -9,6 +9,7 @@ public class UnitInfo : Interaction
     public float MaxHealth, CurrentHealth;
     bool show = false;
     public Sprite PortraitImage;
+    public string UnitType;
 
     public override void Select()
     {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Highlight : Interaction {
+public class VisibleWhenSelected : Interaction {
     public GameObject DisplayItem;
     public override void Deselect()
     {

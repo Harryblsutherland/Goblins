@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionSelect : Interaction {
+public class ActionSelect : Interaction
+{
 
     public override void Deselect()
     {
@@ -16,9 +17,9 @@ public class ActionSelect : Interaction {
         foreach (var actionBehaviour in GetComponents<ActionBehaviour>())
         {
             ActionManager.Current.AddButton(
-                actionBehaviour.ButtonIcon,
-                actionBehaviour.GetClickAction()
-                );
+                                            actionBehaviour.ButtonIcon,
+                                            actionBehaviour.GetClickAction()
+                                            );
 
         }
     }

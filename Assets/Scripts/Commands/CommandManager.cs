@@ -25,6 +25,14 @@ public class CommandManager : MonoBehaviour
         commandQueue.Clear();
         currentCommand = null;
     }
+    public void AddCommand(Command prCommand)
+    {
+        if ((!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift) && commandQueue.Count > 0))
+        {
+          FlushList();
+        }
+        commandQueue.Add(prCommand);
+    }
     public void NextCommand()
     {
         commandQueue.Remove(currentCommand);
@@ -51,6 +59,6 @@ public class CommandManager : MonoBehaviour
             }
             setCurrentCommand();
         }
-        currentCommand.Update();
+        currentCommand.CommandUpdate();
     }
 }

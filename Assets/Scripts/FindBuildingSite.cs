@@ -41,6 +41,7 @@ public class FindBuildingSite : MonoBehaviour {
                 go.AddComponent<ActionSelect>();
                 go.transform.position = transform.position;
                 go.AddComponent<Player> ().Info = playerInfo;
+                go.GetComponent<StructureController>().RalliedObject = go;
                 Destroy(this.gameObject);
             }
         }

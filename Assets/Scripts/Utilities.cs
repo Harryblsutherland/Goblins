@@ -6,6 +6,14 @@ public static class  Utilities
 {
     static Texture2D _whiteTexture;
 
+    public static Vector2 RandomOnUnitCircle2(float radius)
+    {
+        Vector2 randomPointOnCircle = Random.insideUnitCircle;
+        randomPointOnCircle.Normalize();
+        randomPointOnCircle *= radius;
+        return randomPointOnCircle;
+    }
+
     public static Texture2D WhiteTexture
     {
         get

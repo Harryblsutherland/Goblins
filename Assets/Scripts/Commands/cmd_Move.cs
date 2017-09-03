@@ -4,27 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Cmd_Move : Command {
+public class Cmd_Move : Command
+{
 
-    public float relaxDistance = 5f;
+    public float relaxDistance = 0;
     public Vector3 destination;
     private NavMeshAgent agent;
-    
 
-    public Cmd_Move(Vector3 prPoint, CommandManager prCommandManager, NavMeshAgent prAgent)
+    /// <summary>
+    /// This command will move the unit to a given place then progress to the next. this command disables targeting and just moves the unit.
+    /// </summary>
+
+
+    public override void Awake()
     {
-        agent = prAgent;
-        commandManager = prCommandManager;
-        destination = prPoint;
+        base.Awake();
+        relaxDistance = 5f;
+        agent = GetComponent<NavMeshAgent>();
     }
-
-    public override void Delete()
-    {
-        
-    }
-
     public override void Execute()
-    {
+    { 
         agent.SetDestination(destination);
         agent.isStopped = false;
     }
@@ -34,14 +33,18 @@ public class Cmd_Move : Command {
         agent.isStopped = true;
     }
 
-    public override void Update ()
+    public override void CommandUpdate()
     {
-        var distance = Vector3.Distance(destination, commandManager.transform.position);
-        
+        var distance = Vector3.Distance(destination, transform.position);
+
         if (distance <= relaxDistance)
         {
             agent.isStopped = true;
             commandManager.NextCommand();
         }
+    }
+    public override void Delete()
+    {
+
     }
 }

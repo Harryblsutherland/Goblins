@@ -32,8 +32,7 @@ public class AIB_CreateBase : AIBehaviour {
             {
                 var pos = goblin.transform.position;
                 pos += UnityEngine.Random.insideUnitSphere * buildingRange;
-                pos.y = Terrain.activeTerrain.SampleHeight(pos);
-
+                pos.y = Terrain.activeTerrain.SampleHeight(pos) + Terrain.activeTerrain.transform.position.y;
                 go.transform.position = pos;
 
                 if (RtsManager.Current.IsGameObjectSafeToPlace(go) && support.Player.Credits > cost)

@@ -43,36 +43,16 @@ using UnityEngine;
         agent = GetComponent<NavMeshAgent>();
 
     }
-		// Update is called once per frame
+    // Update is called once per frame
 	void Update () {
         if (selected && Input.GetKey(KeyCode.P))
         {
-            
             Vector3 tempTarget = (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition);
-            if ((!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift) && commandManager.commandQueue.Count > 0))
-            {
-                commandManager.FlushList();
-            }
-
-
-            commandManager.commandQueue.Add(new Cmd_Patrol(tempTarget, commandManager, agent));
+            commandManager.AddCommand(NewCommand.PatrolCommandAdd(transform.gameObject,tempTarget));
         }
 
+        
 
-
-        if (selected && Input.GetMouseButtonDown(1))
-        {
-            var commandmanager = GetComponent<CommandManager>();
-            
-            Vector3 tempTarget = (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition);
-            if ((!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift) && commandmanager.commandQueue.Count > 0))
-            {
-                commandmanager.FlushList();
-            }
-
-                      
-            commandmanager.commandQueue.Add(new Cmd_Move(tempTarget,commandmanager,agent));
-
-        }
+       
 	}
 }

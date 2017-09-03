@@ -80,12 +80,15 @@ GameObject:
   - component: {fileID: 114690675168708806}
   - component: {fileID: 114875446117642850}
   - component: {fileID: 114616856644018886}
+  - component: {fileID: 114775831999981880}
   - component: {fileID: 114187383616146390}
   - component: {fileID: 114770243234889952}
   - component: {fileID: 114681995551392778}
   - component: {fileID: 114124631166649126}
   - component: {fileID: 114187599589736370}
   - component: {fileID: 114713936883040992}
+  - component: {fileID: 114667215713939172}
+  - component: {fileID: 114283354371518020}
   m_Layer: 0
   m_Name: Drone Unit
   m_TagString: Untagged
@@ -390,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0c9588cec4e434e995a5c118ba0359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandQueue: []
   animator: {fileID: 0}
 --- !u!114 &114187383616146390
 MonoBehaviour:
@@ -436,6 +440,17 @@ MonoBehaviour:
   Renderers:
   - {fileID: 23373212219433324}
   - {fileID: 23178847982193354}
+--- !u!114 &114283354371518020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eccfdc93831387d4f82499f8c6dc75c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114514871494770418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,6 +480,17 @@ MonoBehaviour:
     type: 2}
   maxBuildDistance: 20
   GhostbuildingPrefab: {fileID: 165228, guid: bdb460add5b66f54f87ded122b378ccc, type: 2}
+--- !u!114 &114667215713939172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce9f8023bf95034c861314f896e79c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114681995551392778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -526,6 +552,18 @@ MonoBehaviour:
     Credits: 0
   findTargetCounter: 0
   attackCounter: 0
+--- !u!114 &114775831999981880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b236c1edff2fe449585a0edbd1a8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonIcon: {fileID: 21300000, guid: 13a564411d8eeef448894871cf87619a, type: 3}
 --- !u!114 &114875446117642850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,6 +579,7 @@ MonoBehaviour:
   MaxHealth: 100
   CurrentHealth: 100
   PortraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
+  UnitType: Unit
 --- !u!135 &135133942919043632
 SphereCollider:
   m_ObjectHideFlags: 1
