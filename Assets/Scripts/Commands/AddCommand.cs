@@ -38,4 +38,12 @@ public static class NewCommand  {
 
         return newCommand;
     }
+    public static Cmd_Attack AttackCommandAdd(GameObject go, GameObject targetUnit)
+    {
+        Cmd_Attack newCommand = go.AddComponent<Cmd_Attack>();
+        newCommand.TargetUnit = targetUnit;
+
+        return newCommand;
+    }
+
 }

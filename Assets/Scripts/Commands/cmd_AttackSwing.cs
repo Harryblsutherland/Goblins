@@ -38,10 +38,7 @@ public class Cmd_AttackSwing : Command
         }
         weapon.transform.LookAt(weapon.Target.transform);
         commandManager.animator.Play(attackAnimation);
-        if (commandManager.commandQueue.Count >= 2)
-        {
-            commandManager.commandQueue[1].Pause();
-        }
+        
     }
     public override void Pause()
     {
@@ -64,10 +61,11 @@ public class Cmd_AttackSwing : Command
             weapon.Fire();
             triggered = true;
             Debug.Log("cashmeOutSide");
+            Destroy(this);
         }
     }
+
     public override void Delete()
     {
-
     }
 }

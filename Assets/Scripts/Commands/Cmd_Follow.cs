@@ -23,6 +23,7 @@ public class Cmd_Follow : Command
 
     public override void Execute()
     {
+        GetComponent<AttackInRange>().Aggressive = false;
         agent.SetDestination(followedUnit.transform.position);
         agent.isStopped = false;
     }

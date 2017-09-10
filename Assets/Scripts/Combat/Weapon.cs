@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    public DamageObject damageObject;
 
     public float range;
     public float minRange;
@@ -13,7 +14,9 @@ public abstract class Weapon : MonoBehaviour
     public float damage;
     public string damageType;
     public string attackanimation;
-    public DamageObject damageObject;
+    public bool canAttack;
+    private float attackCounter;
+
     private UnitInfo target;
     private CommandManager commandManager;
 
@@ -29,17 +32,32 @@ public abstract class Weapon : MonoBehaviour
             target = value;
         }
     }
+    private void Update()
+    {
+        if (canAttack)
+        {
+            return;
+        }
+        attackCounter += Time.deltaTime;
+        if (attackCounter > attackRate)
+        {
+            canAttack = true;
+            attackCounter = 0;
+        }
+    }
 
     public virtual void Start()
     {
         commandManager = GetComponent<CommandManager>();
         damageObject = new DamageObject(damage, damageType);
-
     }
+
     public virtual void Attack()
     {
-        commandManager.commandQueue.Insert(0, NewCommand.AttackSwingCommandAdd(transform.gameObject,attackanimation,attackDuration,attackTriggerPoint,this));
+        commandManager.InsertCommand(NewCommand.AttackSwingCommandAdd(transform.gameObject, attackanimation, attackDuration, attackTriggerPoint, this));
+        canAttack = false;
     }
+
     public virtual void Fire()
     {
 

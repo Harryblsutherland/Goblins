@@ -40,7 +40,10 @@ public class Cmd_Move : Command
         if (distance <= relaxDistance)
         {
             agent.isStopped = true;
+
             commandManager.NextCommand();
+            GetComponent<AttackInRange>().Aggressive = true;
+            Destroy(this);
         }
     }
     public override void Delete()

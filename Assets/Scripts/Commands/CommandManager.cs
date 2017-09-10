@@ -15,15 +15,25 @@ public class CommandManager : MonoBehaviour
     {
         animator = GetComponentInChildren<Animator>();
     }
+    public void InsertCommand(Command prNewCommand)
+    {
+        commandQueue.Insert(0,prNewCommand);
+        if (commandQueue.Count >= 2)
+        {
+            commandQueue[1].Pause();
+        }
+        SetCurrentCommand();
+    }
 
     public void FlushList()
     {
         foreach (var command in commandQueue)
         {
-            command.Delete();
+            Destroy(command);
         }
         commandQueue.Clear();
         currentCommand = null;
+        SetCurrentCommand();
     }
     public void AddCommand(Command prCommand)
     {
@@ -37,9 +47,10 @@ public class CommandManager : MonoBehaviour
     {
         commandQueue.Remove(currentCommand);
         currentCommand.Delete();
-        setCurrentCommand();
+        Destroy(currentCommand);
+        SetCurrentCommand();
     }
-    private void setCurrentCommand()
+    private void SetCurrentCommand()
     {
         currentCommand = commandQueue.FirstOrDefault();
         if (currentCommand != null)
@@ -57,7 +68,7 @@ public class CommandManager : MonoBehaviour
             {
                 return;
             }
-            setCurrentCommand();
+            SetCurrentCommand();
         }
         currentCommand.CommandUpdate();
     }

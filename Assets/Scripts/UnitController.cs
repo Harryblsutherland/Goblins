@@ -26,10 +26,19 @@ public class UnitController : InputController
 
     public override void RightClickOnUnit(GameObject TargetUnit)
     {
-        commandManager.AddCommand(NewCommand.FollowCommandAdd(transform.gameObject, TargetUnit));
+        if (TargetUnit.GetComponent<AttackInRange>().player.Name == GetComponent<AttackInRange>().player.Name)
+        {
+            commandManager.AddCommand(NewCommand.FollowCommandAdd(transform.gameObject, TargetUnit));
+            Debug.Log("follow Command added");
+        }
+        
+        commandManager.AddCommand(NewCommand.AttackCommandAdd(transform.gameObject, TargetUnit));
+        Debug.Log("attack Command added");
+
     }
     // Update is called once per frame
     void Update()
     { 
     }
 }
+  

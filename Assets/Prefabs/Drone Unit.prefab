@@ -426,6 +426,7 @@ MonoBehaviour:
   damage: 20
   damageType: '"normal"'
   attackanimation: Attack
+  canAttack: 0
 --- !u!114 &114234388932559232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,9 +541,8 @@ MonoBehaviour:
   weaponHit: {fileID: 1903846109274984, guid: 40f1cf55d5b0a634dbe9a1ddba75fc6e, type: 2}
   Weapons: []
   findTargetDelay: 0.62
-  attackRange: 24.4
-  attackSpeed: 1
-  attackDamage: 10
+  attackFindRange: 5
+  target: {fileID: 0}
   player:
     Name: 
     Location: {fileID: 0}
@@ -551,7 +551,7 @@ MonoBehaviour:
     IsAi: 0
     Credits: 0
   findTargetCounter: 0
-  attackCounter: 0
+  Aggressive: 1
 --- !u!114 &114775831999981880
 MonoBehaviour:
   m_ObjectHideFlags: 1
