@@ -18,7 +18,6 @@ using UnityEngine;
     {
         selected = false;
     }
-
     public override void Select()
     {
         selected = true;
@@ -34,8 +33,6 @@ using UnityEngine;
         agent.isStopped = false;
         isActive = true;
     }
-
-
     // Use this for initialization
     void Start () {
 
@@ -48,11 +45,12 @@ using UnityEngine;
         if (selected && Input.GetKey(KeyCode.P))
         {
             Vector3 tempTarget = (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition);
-            commandManager.AddCommand(NewCommand.PatrolCommandAdd(transform.gameObject,tempTarget));
+            commandManager.AddCommand(Cmd_Patrol.New(transform.gameObject, tempTarget));
         }
-
-        
-
-       
-	}
+        if (selected && Input.GetKey(KeyCode.F))
+        {
+            Vector3 tempTarget = (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition);
+            commandManager.AddCommand(Cmd_Patrol.New(transform.gameObject, tempTarget));
+        }
+    }
 }

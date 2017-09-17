@@ -54,7 +54,7 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void Attack()
     {
-        commandManager.InsertCommand(NewCommand.AttackSwingCommandAdd(transform.gameObject, attackanimation, attackDuration, attackTriggerPoint, this));
+        commandManager.InsertCommand(Cmd_AttackSwing.New(transform.gameObject, attackanimation, attackDuration, attackTriggerPoint, this));
         canAttack = false;
     }
 

@@ -7,6 +7,7 @@ public abstract class InputController : MonoBehaviour {
     public abstract void RightClickInSpace(Vector3 Point);
     public abstract void RightClickOnUnit(GameObject TargetUnit);
     public abstract void RightClickOnStructure(GameObject TargetUnit);
+    public abstract void RightClickOnMine(GameObject TargetObject);
 
 
 

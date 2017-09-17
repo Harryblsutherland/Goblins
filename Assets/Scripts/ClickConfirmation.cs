@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class ClickConfirmation : MonoBehaviour
 
     private bool isClickConfirmationOn;
     private GameObject cursor;
-    private System.Delegate actionOnClick;
+    private Delegate actionOnClick;
     public static ClickConfirmation current;
 
     public ClickConfirmation()

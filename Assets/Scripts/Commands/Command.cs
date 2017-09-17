@@ -4,13 +4,16 @@ using UnityEngine;
 
 public abstract class Command : MonoBehaviour
 {
-    private bool paused;
+    public bool paused;
     public CommandManager commandManager;
+    public AttackInRange Targeting;
 
     public virtual void Awake()
     {
         paused = false;
         commandManager = GetComponent<CommandManager>();
+        Targeting = GetComponent<AttackInRange>();
+        //Targeting.Aggressive = false;
     }
     public virtual void Pause()
     {
@@ -19,5 +22,4 @@ public abstract class Command : MonoBehaviour
     public abstract void Execute();
     public abstract void CommandUpdate();
     public abstract void Delete();
-
 }

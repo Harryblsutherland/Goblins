@@ -16,7 +16,7 @@ public class Destructible : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (info.CurrentHealth <= 0)
+        if (info.currentHealth <= 0)
         {
             Destroy(this.gameObject);
             GameObject.Instantiate(Corpse, transform.position, Quaternion.identity);

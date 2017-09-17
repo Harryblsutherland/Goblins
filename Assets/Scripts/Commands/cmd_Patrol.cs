@@ -15,6 +15,14 @@ public class Cmd_Patrol : Command
     /// this command will move between the two given points indefinitely. it enables targeting.
     /// </summary>
 
+    public static Cmd_Patrol New(GameObject prGameObject, Vector3 prPoint)
+    {
+        Cmd_Patrol newcommand = prGameObject.AddComponent<Cmd_Patrol>();
+        newcommand.pointA = prPoint;
+
+        return newcommand;
+    }
+
     public override void Awake()
     {
         base.Awake();
@@ -24,9 +32,9 @@ public class Cmd_Patrol : Command
 
     public override void Execute()
     {
-        
         agent.SetDestination(pointA);
         agent.isStopped = false;
+        Targeting.Aggressive = true;
     }
 
     public override void Pause()

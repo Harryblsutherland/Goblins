@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class Cmd_Move : Command
 {
-
     public float relaxDistance = 0;
     public Vector3 destination;
     private NavMeshAgent agent;
@@ -15,7 +14,13 @@ public class Cmd_Move : Command
     /// This command will move the unit to a given place then progress to the next. this command disables targeting and just moves the unit.
     /// </summary>
 
+    public static Cmd_Move New(GameObject prGameObject, Vector3 prPoint)
+    {
+        Cmd_Move newcommand = prGameObject.AddComponent<Cmd_Move>();
+        newcommand.destination = prPoint;
 
+        return newcommand;
+    }
     public override void Awake()
     {
         base.Awake();
@@ -26,6 +31,8 @@ public class Cmd_Move : Command
     { 
         agent.SetDestination(destination);
         agent.isStopped = false;
+        Targeting.Target = null;
+        Targeting.Aggressive = false;
     }
 
     public override void Pause()
@@ -43,6 +50,7 @@ public class Cmd_Move : Command
 
             commandManager.NextCommand();
             GetComponent<AttackInRange>().Aggressive = true;
+
             Destroy(this);
         }
     }

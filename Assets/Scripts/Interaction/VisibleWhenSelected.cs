@@ -4,21 +4,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class VisibleWhenSelected : Interaction {
-    public GameObject DisplayItem;
+
+    public List<GameObject> DisplayItems = new List<GameObject>();
     public override void Deselect()
     {
-        DisplayItem.SetActive(false);
+        foreach (var DisplayItem in DisplayItems)
+        {
+            DisplayItem.SetActive(false);
+        }
+        
     }
 
     public override void Select()
     {
-        DisplayItem.SetActive(true);
+        foreach (var DisplayItem in DisplayItems)
+        {
+            DisplayItem.SetActive(true);
+        }
     }
 
     // Use this for initialization
     void Start ()
     {
-        DisplayItem.SetActive(false);
-	}
+        foreach (var DisplayItem in DisplayItems)
+        {
+            DisplayItem.SetActive(false);
+        }
+    }
 	
 }

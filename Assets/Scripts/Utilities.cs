@@ -6,6 +6,13 @@ public static class  Utilities
 {
     static Texture2D _whiteTexture;
 
+    public static Color ColorLerp3(Color a, Color b, Color c, float t)
+    {
+        if (t < 0.5f) 
+            return Color.Lerp(a, b, t / 0.5f);
+        else 
+            return Color.Lerp(b, c, (t - 0.5f) / 0.5f);
+    }
     public static Vector2 RandomOnUnitCircle2(float radius)
     {
         Vector2 randomPointOnCircle = Random.insideUnitCircle;

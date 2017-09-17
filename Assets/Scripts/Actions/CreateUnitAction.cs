@@ -37,7 +37,7 @@ public class CreateUnitAction : ActionBehaviour {
             var unitInput = newUnit.GetComponent<UnitController>();
             if (inputController.RalliedObject != null)
             {
-                switch (inputController.RalliedObject.GetComponent<UnitInfo>().UnitType)
+                switch (inputController.RalliedObject.GetComponent<UnitInfo>().unitType)
                 {
                     case "Structure" :
                         unitInput.RightClickOnStructure(inputController.RalliedObject);

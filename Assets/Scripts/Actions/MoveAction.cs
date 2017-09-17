@@ -9,7 +9,6 @@ public class MoveAction : ActionBehaviour
     public System.Action onClickAction;
     public override Action GetClickAction()
     {
-
         return delegate ()
         {
             ClickConfirmation.current.StartClickConfirmation(transform.gameObject, onClickAction);
@@ -20,7 +19,7 @@ public class MoveAction : ActionBehaviour
     void Awake()
     {
         // ButtonIcon = Resources.Load("moveicon") as Sprite;
-        onClickAction = () => { GetComponent<CommandManager>().AddCommand(NewCommand.MoveCommandAdd(transform.gameObject, (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition))); };
+        onClickAction = () => { GetComponent<CommandManager>().AddCommand(Cmd_Move.New(transform.gameObject, (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition))); };
     }
 
     // Update is called once per frame

@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputInteractions : Interaction {
-    
+public class InputInteractions : Interaction
+{
+
     private bool selected = false;
     private bool isActive = false;
     private InputController Controller;
@@ -35,20 +36,42 @@ public class InputInteractions : Interaction {
             {
                 return;
             }
-            var info = hit.transform.GetComponent<UnitInfo>();
-            if (info == null)
+            // var info = hit.transform.GetComponent<UnitInfo>();
+            switch (hit.transform.gameObject.tag)
             {
-                Controller.RightClickInSpace((Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition));
-                return;
+                case "Structure":
+                    Controller.RightClickOnStructure(hit.transform.gameObject);
+                    break;
+                case "Unit":
+                    Controller.RightClickOnUnit(hit.transform.gameObject);
+                    break;
+                case "Gold":
+                    Debug.Log("itsAMine");
+                    Controller.RightClickOnMine(hit.transform.gameObject);
+                    break;
+                default: 
+                    Controller.RightClickInSpace((Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition));
+                    break;
             }
-            else if (info.UnitType == "Structure")
-            {
-                Controller.RightClickOnStructure(hit.transform.gameObject);
-            }
-            else
-            {
-                Controller.RightClickOnUnit(hit.transform.gameObject);
-            }
+
+            //if (info == null)
+            //{
+            //    return;
+            //}
+            //else if (info.unitType == "Structure")
+            //{
+            //    Controller.RightClickOnStructure(hit.transform.gameObject);
+            //}
+            //else if (hit.transform.gameObject.tag.Equals("Gold"))
+            //{
+            //    Debug.Log("itsAMine");
+            //    Controller.RightClickOnMine(info.gameObject);
+            //}
+            //else
+            //{
+            //    Controller.RightClickOnUnit(hit.transform.gameObject);
+
+            //}
         }
 
 

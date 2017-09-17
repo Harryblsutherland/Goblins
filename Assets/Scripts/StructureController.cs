@@ -42,6 +42,13 @@ public class StructureController : InputController
 
     }
 
+    public override void RightClickOnMine(GameObject TargetObject)
+    {
+        rallypoint = transform.position;
+        RalliedObject = TargetObject;
+        transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 2);
+    }
+
     public override void RightClickOnStructure(GameObject prTargetUnit)
     {
         rallypoint = transform.position;

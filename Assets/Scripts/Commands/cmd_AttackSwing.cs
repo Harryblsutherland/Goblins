@@ -18,6 +18,13 @@ public class Cmd_AttackSwing : Command
     /// and nothing else it also allows for animation cancelling minigame.
     /// </summary>
 
+    public static Cmd_AttackSwing New(GameObject prGameObject, string prAnimation, float prDuration, float prAttackTriggerPoint, Weapon prAttackingWeapon)
+    {
+        Cmd_AttackSwing newcommand = prGameObject.AddComponent<Cmd_AttackSwing>();
+        newcommand.DefineFields(prAnimation, prDuration, prAttackTriggerPoint, prAttackingWeapon);
+
+        return newcommand;
+    }
     public void DefineFields(string prAnimation, float prDuration, float prAttackTriggerPoint, Weapon prAttackingWeapon)
     {
         Duration = prDuration;
@@ -29,8 +36,6 @@ public class Cmd_AttackSwing : Command
     }
     public override void Execute()
     {
-
-
         if (weapon.Target == null)
         {
             commandManager.NextCommand();
@@ -38,11 +43,9 @@ public class Cmd_AttackSwing : Command
         }
         weapon.transform.LookAt(weapon.Target.transform);
         commandManager.animator.Play(attackAnimation);
-        
     }
     public override void Pause()
     {
-
     }
     public override void CommandUpdate()
     {
@@ -60,8 +63,7 @@ public class Cmd_AttackSwing : Command
         {
             weapon.Fire();
             triggered = true;
-            Debug.Log("cashmeOutSide");
-            Destroy(this);
+
         }
     }
 

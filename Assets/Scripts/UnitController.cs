@@ -12,31 +12,38 @@ public class UnitController : InputController
     {
         commandManager = GetComponent<CommandManager>();
     }
-    void Start()
+    public override void RightClickOnMine(GameObject TargetObject)
     {
+        commandManager.AddCommand(Cmd_Gather.New(gameObject, TargetObject));
     }
     public override void RightClickInSpace(Vector3 Point)
     {
-        commandManager.AddCommand(NewCommand.MoveCommandAdd(transform.gameObject, Point));
+        commandManager.AddCommand(Cmd_Move.New(transform.gameObject, Point));
+
     }
     public override void RightClickOnStructure(GameObject TargetUnit)
     {
-        commandManager.AddCommand(NewCommand.MoveCommandAdd(transform.gameObject, TargetUnit.transform.position));
+        if (TargetUnit.GetComponent<Player>().Info.Name == GetComponent<Player>().Info.Name)
+        {
+            commandManager.AddCommand(Cmd_Move.New(transform.gameObject, TargetUnit.transform.position));
+        }
+        else
+        {
+            commandManager.AddCommand(Cmd_Attack.New(transform.gameObject, TargetUnit));
+        }
     }
 
     public override void RightClickOnUnit(GameObject TargetUnit)
     {
-        if (TargetUnit.GetComponent<AttackInRange>().player.Name == GetComponent<AttackInRange>().player.Name)
+        if (TargetUnit.GetComponent<Player>().Info.Name == GetComponent<Player>().Info.Name)
         {
-            commandManager.AddCommand(NewCommand.FollowCommandAdd(transform.gameObject, TargetUnit));
-            Debug.Log("follow Command added");
+            commandManager.AddCommand(Cmd_Follow.New(transform.gameObject, TargetUnit));            
         }
-        
-        commandManager.AddCommand(NewCommand.AttackCommandAdd(transform.gameObject, TargetUnit));
-        Debug.Log("attack Command added");
-
+        else
+        {
+            commandManager.AddCommand(Cmd_Attack.New(transform.gameObject, TargetUnit));
+        }
     }
-    // Update is called once per frame
     void Update()
     { 
     }
