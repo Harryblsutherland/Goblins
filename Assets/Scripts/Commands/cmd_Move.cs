@@ -9,7 +9,8 @@ public class Cmd_Move : Command
     public float relaxDistance = 0;
     public Vector3 destination;
     private NavMeshAgent agent;
-
+    public bool aggression;
+    public string animationclip;
     /// <summary>
     /// This command will move the unit to a given place then progress to the next. this command disables targeting and just moves the unit.
     /// </summary>
@@ -21,18 +22,28 @@ public class Cmd_Move : Command
 
         return newcommand;
     }
+    public static Cmd_Move New(GameObject prGameObject, Vector3 prPoint,bool Agressive)
+    {
+        Cmd_Move newcommand = prGameObject.AddComponent<Cmd_Move>();
+        newcommand.destination = prPoint;
+        newcommand.aggression = Agressive;
+        return newcommand;
+    }
     public override void Awake()
     {
         base.Awake();
         relaxDistance = 5f;
         agent = GetComponent<NavMeshAgent>();
+        aggression = false;
+        
     }
     public override void Execute()
-    { 
+    {
+        commandManager.animator.Play(GetComponent<UnitAnimation>().Run.name);
         agent.SetDestination(destination);
         agent.isStopped = false;
         Targeting.Target = null;
-        Targeting.Aggressive = false;
+        Targeting.Aggressive = aggression;
     }
 
     public override void Pause()
@@ -49,13 +60,14 @@ public class Cmd_Move : Command
             agent.isStopped = true;
 
             commandManager.NextCommand();
-            GetComponent<AttackInRange>().Aggressive = true;
+            Targeting.Aggressive = true;
+            aggression = false;
 
             Destroy(this);
         }
     }
     public override void Delete()
     {
-
+        agent.isStopped = true;
     }
 }

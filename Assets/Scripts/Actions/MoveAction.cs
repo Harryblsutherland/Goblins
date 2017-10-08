@@ -6,25 +6,28 @@ using UnityEngine;
 public class MoveAction : ActionBehaviour
 {
 
-    public System.Action onClickAction;
+    public Action onClickAction;
     public override Action GetClickAction()
     {
         return delegate ()
         {
             ClickConfirmation.current.StartClickConfirmation(transform.gameObject, onClickAction);
-
         };
     }
 
     void Awake()
     {
-        // ButtonIcon = Resources.Load("moveicon") as Sprite;
-        onClickAction = () => { GetComponent<CommandManager>().AddCommand(Cmd_Move.New(transform.gameObject, (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition))); };
+        onClickAction = () => MoveallSelectedUnits();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MoveallSelectedUnits()
     {
-
+        var destination = (Vector3)RtsManager.Current.ScreenPointToMapPosition(Input.mousePosition);
+        foreach (var Unit in MouseManager.Current.Selections)
+        {
+            Unit.GetComponent<CommandManager>().AddCommand(Cmd_Move.New(Unit.gameObject, destination));
+        }
     }
+
 }
+

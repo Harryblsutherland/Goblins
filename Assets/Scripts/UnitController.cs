@@ -23,6 +23,10 @@ public class UnitController : InputController
     }
     public override void RightClickOnStructure(GameObject TargetUnit)
     {
+        if (TargetUnit.GetComponent<StockManager>() != null)
+        {
+            
+        }
         if (TargetUnit.GetComponent<Player>().Info.Name == GetComponent<Player>().Info.Name)
         {
             commandManager.AddCommand(Cmd_Move.New(transform.gameObject, TargetUnit.transform.position));
@@ -31,6 +35,8 @@ public class UnitController : InputController
         {
             commandManager.AddCommand(Cmd_Attack.New(transform.gameObject, TargetUnit));
         }
+
+        
     }
 
     public override void RightClickOnUnit(GameObject TargetUnit)

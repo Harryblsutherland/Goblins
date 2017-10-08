@@ -80,7 +80,6 @@ GameObject:
   - component: {fileID: 114690675168708806}
   - component: {fileID: 114875446117642850}
   - component: {fileID: 114616856644018886}
-  - component: {fileID: 114775831999981880}
   - component: {fileID: 114187383616146390}
   - component: {fileID: 114770243234889952}
   - component: {fileID: 114681995551392778}
@@ -90,6 +89,11 @@ GameObject:
   - component: {fileID: 114667215713939172}
   - component: {fileID: 114283354371518020}
   - component: {fileID: 114602180688390398}
+  - component: {fileID: 114775831999981880}
+  - component: {fileID: 114888852101718920}
+  - component: {fileID: 114644419173603682}
+  - component: {fileID: 114337689394414048}
+  - component: {fileID: 114906523792594976}
   m_Layer: 0
   m_Name: Drone Unit
   m_TagString: Unit
@@ -417,7 +421,7 @@ Animator:
   m_GameObject: {fileID: 1556529526641010}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd72cfbd73852cf479722c5730b00fd7, type: 2}
+  m_Controller: {fileID: 9100000, guid: c676e6df181317d48bbbebfb719a1deb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -534,6 +538,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccfdc93831387d4f82499f8c6dc75c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114337689394414048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581e7f0789046474ba6fbee7b36a4c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 5
+  ButtonIcon: {fileID: 21300000, guid: d97c6919bdbdd9b40ab9c81b45f20fd1, type: 3}
 --- !u!114 &114496745211372484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -597,12 +614,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05a0353fe136fd40a886e4395a010fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferredIndex: 0
   ButtonIcon: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
   buildingCost: 200
   buildingPrefab: {fileID: 1711865537636562, guid: 0bd7fbfb997203c48ae626fb9d58d1fd,
     type: 2}
   maxBuildDistance: 20
   GhostbuildingPrefab: {fileID: 165228, guid: bdb460add5b66f54f87ded122b378ccc, type: 2}
+--- !u!114 &114644419173603682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5788bf16db0af4d43bb93a3e552d4b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 4
+  ButtonIcon: {fileID: 21300000, guid: 5f84d9fce59c39543a3ccff5c7bc92bd, type: 3}
 --- !u!114 &114667215713939172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -685,6 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b236c1edff2fe449585a0edbd1a8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preferredIndex: 8
   ButtonIcon: {fileID: 21300000, guid: 13a564411d8eeef448894871cf87619a, type: 3}
 --- !u!114 &114820317878439732
 MonoBehaviour:
@@ -758,6 +790,32 @@ MonoBehaviour:
     StartingUnits: []
     IsAi: 0
     Credits: 0
+--- !u!114 &114888852101718920
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40c02fa661a96b438e5aca4ae953615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 10
+  ButtonIcon: {fileID: 21300000, guid: 38f18aabbd874c747a9e9c0538ecf8b6, type: 3}
+--- !u!114 &114906523792594976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580995016019966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6b39adbdbdced4bb7341428d367f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 9
+  ButtonIcon: {fileID: 21300000, guid: 757b28daf1ee65b4fb2f39f378bdc979, type: 3}
 --- !u!135 &135133942919043632
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -785,10 +843,10 @@ NavMeshAgent:
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
+  m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1.4884481
-  m_BaseOffset: 0.7442241
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!222 &222309617292255358

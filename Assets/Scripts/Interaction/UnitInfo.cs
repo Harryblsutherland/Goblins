@@ -41,6 +41,10 @@ public class UnitInfo : Interaction
         {
             return;
         }
+        if (GetComponent<ProductionManager>() != null)
+        {
+            GetComponent<ProductionManager>().UpdateProductionQueue();
+        }
         InfoManager.Current.SetImage(portraitImage);
         InfoManager.Current.SetLines(
                                     Name,

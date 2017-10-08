@@ -5,38 +5,16 @@ using UnityEngine.UI;
 using System;
 
 public class ActionManager : MonoBehaviour
-{   public static ActionManager Current;
+{
+    public static ActionManager Current;
     public Button[] Buttons;
     public float autoFireInterval;
     public float autoFireDelay;
 
     private List<KeyCode> gridKeys = new List<KeyCode>();
-    private float[] timer = new float[9];
-    private int[] timerTriggerCount = new int[9];
-    private List<Action> actioncalls = new List<Action>();
-
-    public ActionManager()
-    {
-        Current = this;
-    }
-    public void ClearButton()
-    {
-        foreach (var b in Buttons)
-            b.gameObject.SetActive(false);
-        actioncalls.Clear();
-    }
-    public void AddButton(Sprite Icon, Action onClick)
-    {
-        int index = actioncalls.Count;
-        Buttons[index].gameObject.SetActive(true);
-        Buttons[index].GetComponent<Image>().sprite = Icon;
-        actioncalls.Add(onClick);
-    }
-    public void OnButtonCLick(int index)
-    {
-        actioncalls[index]();
-    }
-    // Use this for initialization
+    private float[] timer = new float[12];
+    private int[] timerTriggerCount = new int[12];
+    private Action[] actioncalls = new Action[12];
     void Start()
     {
         gridKeys.Add(KeyCode.Q);
@@ -63,6 +41,35 @@ public class ActionManager : MonoBehaviour
         }
         ClearButton();
     }
+    public ActionManager()
+    {
+        Current = this;
+    }
+    public void ClearButton()
+    {
+        foreach (var button in Buttons)
+        {
+            button.gameObject.SetActive(false);
+        }
+        for(var i = 0; i < actioncalls.Length; i++)
+        {
+           actioncalls[i] = () => { };;
+        }
+    }
+    public void AddButton(Sprite Icon, Action onClick, int index)
+    {
+        //int index = actioncalls.Count;
+        
+        Buttons[index].gameObject.SetActive(true);
+        Buttons[index].GetComponent<Image>().sprite = Icon;
+        actioncalls[index] = onClick;
+    }
+    public void OnButtonCLick(int index)
+    {
+        actioncalls[index]();
+    }
+    // Use this for initialization
+
 
     // Update is called once per frame
     void Update()

@@ -13,13 +13,18 @@ public abstract class Command : MonoBehaviour
         paused = false;
         commandManager = GetComponent<CommandManager>();
         Targeting = GetComponent<AttackInRange>();
-        //Targeting.Aggressive = false;
     }
     public virtual void Pause()
     {
         paused = true;
     }
-    public abstract void Execute();
+    public virtual void Execute()
+    {
+
+    }
+
+        
+
     public abstract void CommandUpdate();
     public abstract void Delete();
 }

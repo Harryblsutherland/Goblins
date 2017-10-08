@@ -32,6 +32,7 @@ public class Cmd_Patrol : Command
 
     public override void Execute()
     {
+        commandManager.animator.Play(GetComponent<UnitAnimation>().Walk.name);
         agent.SetDestination(pointA);
         agent.isStopped = false;
         Targeting.Aggressive = true;

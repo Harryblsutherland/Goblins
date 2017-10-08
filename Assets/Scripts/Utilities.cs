@@ -2,16 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class  Utilities
+public static class Utilities
 {
     static Texture2D _whiteTexture;
 
     public static Color ColorLerp3(Color a, Color b, Color c, float t)
     {
-        if (t < 0.5f) 
+        if (t < 0.5f)
             return Color.Lerp(a, b, t / 0.5f);
-        else 
+        else
             return Color.Lerp(b, c, (t - 0.5f) / 0.5f);
+    }
+    public static RaycastHit? CheckMouseHit()
+    {
+        var es = UnityEngine.EventSystems.EventSystem.current;
+        if (es != null && es.IsPointerOverGameObject())
+            return null;
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (!Physics.Raycast(ray, out hit))
+        {
+            return null;
+        }
+        return hit;
     }
     public static Vector2 RandomOnUnitCircle2(float radius)
     {

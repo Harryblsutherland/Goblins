@@ -12,6 +12,7 @@ public class Cmd_Attack : Command
     public NavMeshAgent agent;
     private float relaxDistance;
     private Vector3 startingPoint;
+    private Animation idle;
 
     public static Cmd_Attack New(GameObject prGameObject, GameObject prTargetUnit)
     {
@@ -49,7 +50,6 @@ public class Cmd_Attack : Command
 
     public override void Delete()
     {
-
     }
 
     public override void Pause()
@@ -59,15 +59,16 @@ public class Cmd_Attack : Command
     }
     public override void Execute()
     {
+        
+        base.Execute();
         if (ReturnifDead())
         {
             return;
         }
-
+        commandManager.animator.Play(GetComponent<UnitAnimation>().CombatIdle.name);
         Targeting.Target = TargetUnit.GetComponent<UnitInfo>();
         GetComponent<AttackInRange>().Aggressive = true;
         agent.SetDestination(TargetUnit.transform.position);
-        agent.isStopped = false;
     }
 
     public override void CommandUpdate()
@@ -86,13 +87,14 @@ public class Cmd_Attack : Command
 
         agent.SetDestination(TargetUnit.transform.position);
         var distance = Vector3.Distance(TargetUnit.transform.position, transform.position);
-        if (distance <= (Targeting.GetMinimumWeaponRange() - 0.1))
+        if (distance <= (Targeting.GetMinimumWeaponRange() - 0.3))
         {
             agent.isStopped = true;
             Targeting.Attack();
         }
         else
         {
+            commandManager.animator.Play(GetComponent<UnitAnimation>().CombatWalk.name);
             agent.isStopped = false;
         }
     }

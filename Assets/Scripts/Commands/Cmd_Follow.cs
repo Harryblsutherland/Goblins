@@ -30,6 +30,7 @@ public class Cmd_Follow : Command
 
     public override void Execute()
     {
+        commandManager.animator.Play(GetComponent<UnitAnimation>().Walk.name);
         GetComponent<AttackInRange>().Aggressive = false;
         agent.SetDestination(followedUnit.transform.position);
         agent.isStopped = false;
@@ -53,7 +54,6 @@ public class Cmd_Follow : Command
 
     public override void Delete()
     {
-
     }
 
 

@@ -11,7 +11,6 @@ public class Cmd_AttackSwing : Command
     private float triggerPoint;
     private bool triggered;
     private Weapon weapon;
-    private string attackAnimation;
 
     /// <summary>
     /// this command gets inserted at the front of the command queue to complete an attack animation and time out other events this is command is here to make sure is only doing an attack action
@@ -32,17 +31,17 @@ public class Cmd_AttackSwing : Command
         weapon = prAttackingWeapon;
         triggered = false;
         timeEleapsed = 0;
-        attackAnimation = prAnimation;
     }
     public override void Execute()
     {
+
+        commandManager.animator.Play(GetComponent<UnitAnimation>().Attack.name);
         if (weapon.Target == null)
         {
             commandManager.NextCommand();
             return;
         }
-        weapon.transform.LookAt(weapon.Target.transform);
-        commandManager.animator.Play(attackAnimation);
+        weapon.transform.LookAt(weapon.Target.transform.position);
     }
     public override void Pause()
     {

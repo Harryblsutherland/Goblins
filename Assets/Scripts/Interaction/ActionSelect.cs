@@ -18,7 +18,8 @@ public class ActionSelect : Interaction
         {
             ActionManager.Current.AddButton(
                                             actionBehaviour.ButtonIcon,
-                                            actionBehaviour.GetClickAction()
+                                            actionBehaviour.GetClickAction(),
+                                            actionBehaviour.preferredIndex
                                             );
 
         }

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Material
-  m_Shader: {fileID: 4800000, guid: a97e290cd0cec1a4cb176e474e69c1dc, type: 3}
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
@@ -96,10 +96,10 @@ Material:
     - _DstBlend: 0
     - _EnableExternalAlpha: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.044
+    - _Glossiness: 0.393
     - _GlossyReflections: 0
     - _InvFade: 1
-    - _Metallic: 0
+    - _Metallic: 0.616
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
