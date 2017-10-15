@@ -3230,9 +3230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dffb1d137fb3a548bad4a476a0e4c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Goblin
-  maxHealth: 100
-  currentHealth: 100
+  Name: Fighter
+  maxHealth: 60
+  currentHealth: 60
   portraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
   unitType: Unit
   healthBar: {fileID: 0}

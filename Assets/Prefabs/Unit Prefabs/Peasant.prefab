@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 114808746554309608}
   - component: {fileID: 114917587736698170}
   m_Layer: 0
-  m_Name: Drone Unit 2
+  m_Name: Peasant
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3398,9 +3398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dffb1d137fb3a548bad4a476a0e4c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Goblin
-  maxHealth: 100
-  currentHealth: 100
+  Name: Peasant
+  maxHealth: 60
+  currentHealth: 60
   portraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
   unitType: Unit
   healthBar: {fileID: 0}

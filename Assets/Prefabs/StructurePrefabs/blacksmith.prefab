@@ -504,13 +504,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2fa335901b11df42af19677d5bbe836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stockcount: 0
-  basic: {fileID: 0}
-  withSword: {fileID: 0}
-  withShield: {fileID: 0}
-  withHorse: {fileID: 0}
-  horseSword: {fileID: 0}
-  horseShield: {fileID: 0}
+  Stockcount: 2
+  oneSword: {fileID: 1286140530411416, guid: 3bf36c73d1ee9564fba868feb2aa5d74, type: 2}
+  twoSwords: {fileID: 0}
+  swordShield: {fileID: 0}
+  mountedOneSword: {fileID: 0}
+  mountedTwoSword: {fileID: 0}
+  mountedShieldSword: {fileID: 0}
 --- !u!114 &114122597844538160
 MonoBehaviour:
   m_ObjectHideFlags: 1

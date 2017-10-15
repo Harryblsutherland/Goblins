@@ -25,7 +25,8 @@ public class UnitController : InputController
     {
         if (TargetUnit.GetComponent<StockManager>() != null)
         {
-            
+            commandManager.AddCommand(Cmd_humanEquip.New(gameObject, TargetUnit));
+            return;
         }
         if (TargetUnit.GetComponent<Player>().Info.Name == GetComponent<Player>().Info.Name)
         {
