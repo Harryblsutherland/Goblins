@@ -6,23 +6,18 @@ using UnityEngine;
 public class StockManager : MonoBehaviour
 {
     public int Stockcount;
-    public GameObject oneSword, twoSwords, swordShield, mountedOneSword, mountedTwoSword, mountedShieldSword;
-
-    public void OnInteractCommand(GameObject prCommandedObject)
-    {
-        prCommandedObject.GetComponent<CommandManager>().AddCommand(Cmd_Move.New(prCommandedObject, transform.position));
-        prCommandedObject.GetComponent<CommandManager>().AddCommand(Cmd_humanEquip.New(prCommandedObject, gameObject));
-    }
+    public List<GameObject> CurrentUnits = new List<GameObject>();
+    public List<GameObject> Newunits = new List<GameObject>();
 
     public void EquipUnit(GameObject prOldUnit)
     {
         var replacingUnit = ChooseUnit(prOldUnit);
-        if (replacingUnit != null || Stockcount >= 0)
+        if (replacingUnit != null && Stockcount > 0)
         {
             Vector3 position = prOldUnit.transform.position;
             var newUnit = (GameObject)GameObject.Instantiate(
                                                             replacingUnit,
-                                                            transform.position,
+                                                            prOldUnit.transform.position,
                                                             Quaternion.identity
                                                             );
             newUnit.AddComponent<Player>().Info = prOldUnit.GetComponent<Player>().Info;
@@ -39,31 +34,14 @@ public class StockManager : MonoBehaviour
 
     private GameObject ChooseUnit(GameObject prOldUnit)
     {
-        GameObject newUnit;
-        switch (prOldUnit.GetComponent<UnitInfo>().Name)
+        
+        for(var i = 0; i < CurrentUnits.Count; i++)
         {
-            case "Peasant":
-                newUnit = oneSword;
-                break;
-            case "Fighter":
-                newUnit = twoSwords;
-                break;
-            case "Shieldsman":
-                newUnit = swordShield;
-                break;
-            case "MountedPeasant":
-                newUnit = mountedOneSword;
-                break;
-            case "MountedFighter":
-                newUnit = mountedTwoSword;
-                break;
-            case "MountedShieldsman":
-                newUnit = mountedShieldSword;
-                break;
-            default:
-                newUnit = null;
-                break;
+           if (prOldUnit.GetComponent<UnitInfo>().Name  == CurrentUnits[i].GetComponent<UnitInfo>().Name)
+            {
+                return Newunits[i];
+            }
         }
-        return newUnit;
+        return null;
     }
 }

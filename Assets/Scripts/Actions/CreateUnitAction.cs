@@ -32,7 +32,10 @@ public class CreateUnitAction : ActionBehaviour {
             {
                 GetComponent<ProductionManager>().addItemToProductionQueue(ProductionItem.New(gameObject, ButtonIcon, BuildTime, completionAction, cancellationAction));
                 Player.Credits -= Cost;
+                return;
             }
+            Debug.Log("Cannot Create, It costs" + Cost);
+
         };
     }
     private void CancellationAction()
@@ -42,11 +45,6 @@ public class CreateUnitAction : ActionBehaviour {
     //this action will be passed to the item on the command queue to be executed after completion
     private void ProductionAction()
     {
-        if (Player.Credits < Cost)
-        {
-            Debug.Log("Cannot Create, It costs" + Cost);
-            return;
-        }
         var newUnit = (GameObject)GameObject.Instantiate(
                                                     CreatedUnit,
                                                     transform.position,

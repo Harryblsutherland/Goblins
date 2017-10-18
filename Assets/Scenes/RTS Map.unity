@@ -1671,7 +1671,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429719634}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 457.9, y: 15.7, z: 93}
+  m_LocalPosition: {x: 469.5, y: 15.7, z: 181.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 374370842}
@@ -1861,7 +1861,7 @@ MonoBehaviour:
     AccentColor: {r: 0.0064338297, g: 0.76717806, b: 0.875, a: 1}
     StartingUnits:
     - {fileID: 1678663085784904, guid: 5105e467636f16f49b968f4ab2d88143, type: 2}
-    - {fileID: 1286140530411416, guid: 3bf36c73d1ee9564fba868feb2aa5d74, type: 2}
+    - {fileID: 1001629294793044, guid: 336e8661f4a2b7449a890fdfff9c3d4d, type: 2}
     - {fileID: 1286140530411416, guid: 3bf36c73d1ee9564fba868feb2aa5d74, type: 2}
     IsAi: 0
     Credits: 500

@@ -15,10 +15,19 @@ public class Cmd_Move : Command
     /// This command will move the unit to a given place then progress to the next. this command disables targeting and just moves the unit.
     /// </summary>
 
+
     public static Cmd_Move New(GameObject prGameObject, Vector3 prPoint)
     {
         Cmd_Move newcommand = prGameObject.AddComponent<Cmd_Move>();
         newcommand.destination = prPoint;
+
+        return newcommand;
+    }
+    public static Cmd_Move New(GameObject prGameObject, Vector3 prPoint,float prRelaxDistance)
+    {
+        Cmd_Move newcommand = prGameObject.AddComponent<Cmd_Move>();
+        newcommand.destination = prPoint;
+        newcommand.relaxDistance = prRelaxDistance;
 
         return newcommand;
     }

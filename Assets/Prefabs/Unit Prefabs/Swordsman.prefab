@@ -274,7 +274,6 @@ GameObject:
   - component: {fileID: 195812679945005860}
   - component: {fileID: 114894961083382004}
   - component: {fileID: 114186312347435892}
-  - component: {fileID: 114392812202794028}
   - component: {fileID: 114696863141553512}
   - component: {fileID: 114666960642246872}
   - component: {fileID: 114901007663704344}
@@ -290,7 +289,6 @@ GameObject:
   - component: {fileID: 114517766253233216}
   - component: {fileID: 114491190596094674}
   - component: {fileID: 114624237259729480}
-  - component: {fileID: 114910812637926934}
   m_Layer: 0
   m_Name: Swordsman
   m_TagString: Unit
@@ -396,7 +394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1350507590001882
 GameObject:
   m_ObjectHideFlags: 1
@@ -1609,7 +1607,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286140530411416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 455.2676, y: 10.31374, z: 68.2284}
+  m_LocalPosition: {x: 448.69897, y: 10.31374, z: 80.55737}
   m_LocalScale: {x: -0.5, y: -0.5, z: -0.5}
   m_Children:
   - {fileID: 4452338449438656}
@@ -3294,24 +3292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Renderers:
   - {fileID: 23204841002921724}
---- !u!114 &114392812202794028
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286140530411416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b05a0353fe136fd40a886e4395a010fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preferredIndex: 0
-  ButtonIcon: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
-  buildingCost: 200
-  buildingPrefab: {fileID: 1711865537636562, guid: 0bd7fbfb997203c48ae626fb9d58d1fd,
-    type: 2}
-  maxBuildDistance: 20
-  GhostbuildingPrefab: {fileID: 165228, guid: bdb460add5b66f54f87ded122b378ccc, type: 2}
 --- !u!114 &114491190596094674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3571,25 +3551,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Corpse: {fileID: 1903846109274984, guid: 40f1cf55d5b0a634dbe9a1ddba75fc6e, type: 2}
---- !u!114 &114910812637926934
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286140530411416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b05a0353fe136fd40a886e4395a010fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  preferredIndex: 1
-  ButtonIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  buildingCost: 100
-  buildingPrefab: {fileID: 1838910080745990, guid: 567b88f0fb59c734ebbb3bbae7dc7d11,
-    type: 2}
-  maxBuildDistance: 30
-  GhostbuildingPrefab: {fileID: 1247587436008144, guid: 3edd3aa0278265b45b176b63f3ba83b2,
-    type: 2}
 --- !u!135 &135562506844713046
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -4868,6 +4829,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -20.4}
+  m_AnchoredPosition: {x: 0, y: -20.400002}
   m_SizeDelta: {x: 99.8, y: 32.25}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -46,7 +46,7 @@ public class Cmd_humanEquip : Command
         }
         else
         {
-            commandManager.InsertCommand(Cmd_Move.New(gameObject, targetBuilding.transform.position));
+            commandManager.InsertCommand(Cmd_Move.New(gameObject, targetBuilding.transform.position,10));
         }
     }
     public override void Delete()

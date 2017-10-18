@@ -30,7 +30,7 @@ public class MouseManager : MonoBehaviour {
         Current = this;
     }
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
 
         SingleUnitSelected();
         CreateBox();
