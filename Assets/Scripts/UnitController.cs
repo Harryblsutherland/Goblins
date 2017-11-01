@@ -14,7 +14,10 @@ public class UnitController : InputController
     }
     public override void RightClickOnMine(GameObject TargetObject)
     {
-        commandManager.AddCommand(Cmd_Gather.New(gameObject, TargetObject));
+        if (TargetObject.GetComponent<ResourceNode>().canmine())
+        {
+            commandManager.AddCommand(Cmd_Gather.New(gameObject, TargetObject));
+        }
     }
     public override void RightClickInSpace(Vector3 Point)
     {
@@ -37,14 +40,14 @@ public class UnitController : InputController
             commandManager.AddCommand(Cmd_Attack.New(transform.gameObject, TargetUnit));
         }
 
-        
+
     }
 
     public override void RightClickOnUnit(GameObject TargetUnit)
     {
         if (TargetUnit.GetComponent<Player>().Info.Name == GetComponent<Player>().Info.Name)
         {
-            commandManager.AddCommand(Cmd_Follow.New(transform.gameObject, TargetUnit));            
+            commandManager.AddCommand(Cmd_Follow.New(transform.gameObject, TargetUnit));
         }
         else
         {
@@ -52,7 +55,6 @@ public class UnitController : InputController
         }
     }
     void Update()
-    { 
+    {
     }
 }
-  

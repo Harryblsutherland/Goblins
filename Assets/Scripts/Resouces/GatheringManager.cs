@@ -7,7 +7,7 @@ public class GatheringManager : MonoBehaviour
 {
 
     public List<ResourceNode> nodes = new List<ResourceNode>();
-    private float maximumUnitsPerNode = 3;
+    public float maximumUnitsPerNode = 3;
 
 
     // Use this for initialization

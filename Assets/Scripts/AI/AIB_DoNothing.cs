@@ -11,7 +11,7 @@ public class AIB_DoNothing : AIBehaviour
 
     public override void Execute()
     {
-        support.Player.Credits += support.warrens.Count * 10;
+        support.Player.Credits += 5 + (support.warrens.Count * 2);
     }
 
     public override float GetWeight()

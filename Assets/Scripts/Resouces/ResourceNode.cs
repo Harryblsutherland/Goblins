@@ -16,9 +16,21 @@ public class ResourceNode : MonoBehaviour
         allNodes.Add(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public bool canmine()
+    { 
+        if (depot == null)
+        {
+            return false;
+        }
+        float maxPerNode = depot.GetComponent<GatheringManager>().maximumUnitsPerNode;
 
+        foreach (var node in depot.GetComponent<GatheringManager>().nodes)
+        {
+            if (node.Miners.Count < maxPerNode)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AIB_CreateBase : AIBehaviour {
 
-    public float cost = 199;
+    public float cost = 200;
 
     public int unitsPerBase = 6;
 
@@ -26,11 +26,11 @@ public class AIB_CreateBase : AIBehaviour {
         var go = Instantiate(buildingPrefab);
         go.AddComponent<Player>().Info = support.Player;
 
-        foreach (var goblin in support.goblins)
+        foreach (var Building in support.warrens)
         {
                 for (int i = 0;i < attemptsPerDrone; i++)
             {
-                var pos = goblin.transform.position;
+                var pos = Building.transform.position;
                 pos += UnityEngine.Random.insideUnitSphere * buildingRange;
                 pos.y = Terrain.activeTerrain.SampleHeight(pos) + Terrain.activeTerrain.transform.position.y;
                 go.transform.position = pos;
@@ -51,11 +51,11 @@ public class AIB_CreateBase : AIBehaviour {
         {
             support = aiSupport.GetSupport(gameObject);
         }
-        if (support.goblins.Count == 0 || support.Player.Credits < cost)
+        if (support.peasants.Count == 0 || support.Player.Credits <= cost)
         {
             return 0;
         }
-        if (support.warrens.Count * unitsPerBase <= support.goblins.Count)
+        if (support.warrens.Count * unitsPerBase <= support.peasants.Count)
         {
             return 1;
         }

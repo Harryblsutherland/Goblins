@@ -34,7 +34,7 @@ public class Cmd_Gather : Command
         cancelAction = () => {resourceNode.mineable = true;};
         agent = GetComponent<NavMeshAgent>();
         relaxDistance = 10;
-        GatherAmount = 3;
+        GatherAmount = 5;
         originalRadius = agent.radius;
         agent.radius = 0.1f;
     }
@@ -52,6 +52,11 @@ public class Cmd_Gather : Command
 
     }
 
+    public bool canmine()
+    {
+        
+        return false;
+    }
     private ResourceNode FindNode()
     {
         var tmpNode = initialMine.GetComponent<ResourceNode>().depot.GetComponent<GatheringManager>().ChooseNode().GetComponent<ResourceNode>();

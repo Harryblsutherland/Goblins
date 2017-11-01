@@ -14,7 +14,7 @@ public class AIB_AttackWave : AIBehaviour  {
     {
         var ai = aiSupport.GetSupport(this.gameObject);
        // Debug.Log(ai.Player.Name + "is moving to attack");
-        int wave = (int)(ai.goblins.Count * attackWaveSize);
+        int wave = (int)(ai.peasants.Count * attackWaveSize);
         unitsRequired += increasePerWave;
     
         foreach (var Player in RtsManager.Current.Players)
@@ -23,7 +23,7 @@ public class AIB_AttackWave : AIBehaviour  {
                 continue;
             for (int i = 0; i < wave; i++)
             {
-                var Unit = ai.goblins[i];
+                var Unit = ai.peasants[i];
                 var nav = Unit.GetComponent<RightClickNavigation>();
                 nav.SendToTarget(Player.Location.position);
             }
@@ -40,7 +40,7 @@ public class AIB_AttackWave : AIBehaviour  {
         var ai = aiSupport.GetSupport(this.gameObject);
 
         TimePassed = 0;
-        if (ai.goblins.Count < unitsRequired)
+        if (ai.peasants.Count < unitsRequired)
         {
             return 0;
         }

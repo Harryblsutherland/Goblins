@@ -31,7 +31,7 @@ public class AIB_CreateUnits : AIBehaviour
             return 0;
         }
 
-        var goblins = support.goblins.Count;
+        var goblins = support.peasants.Count;
         var warrens = support.warrens.Count;
 
         if (warrens == 0 || goblins >= warrens * unitsPerBase)

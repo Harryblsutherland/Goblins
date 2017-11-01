@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class aiSupport : MonoBehaviour {
 
-    public List<GameObject> goblins = new List<GameObject>();
+    public List<GameObject> peasants = new List<GameObject>();
     public List<GameObject> warrens = new List<GameObject>();
     public PlayerSetupDefinition Player = null;
 
@@ -14,13 +14,13 @@ public class aiSupport : MonoBehaviour {
     }
     public void refresh()
     {
-        goblins.Clear();
+        peasants.Clear();
         warrens.Clear();
         foreach (var unit in Player.ActiveUnits)
         {
             if (unit.GetComponent<UnitInfo>().Name.Contains("Peasant"))
             {
-                goblins.Add(unit);
+                peasants.Add(unit);
             }
             if (unit.GetComponent<UnitInfo>().Name.Contains("Warren"))
             {
