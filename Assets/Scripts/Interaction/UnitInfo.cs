@@ -22,7 +22,7 @@ public class UnitInfo : Interaction
     private void Start()
     {
         healthBar = transform.Find("Canvas/HealthBackGround/Health").GetComponent<Image>();
-        healthBar.color = Utilities.ColorLerp3(Color.red, Color.yellow, Color.green, currentHealth / maxHealth);
+        healthBar.color = Utilities.ThreeColourLerp(Color.red, Color.yellow, Color.green, currentHealth / maxHealth);
     }
     public override void Select()
     {
@@ -33,7 +33,7 @@ public class UnitInfo : Interaction
     {
         currentHealth -= prAttack.damage;
         healthBar.fillAmount = (currentHealth / maxHealth);
-        healthBar.color = Utilities.ColorLerp3(Color.red, Color.yellow, Color.green, currentHealth / maxHealth);
+        healthBar.color = Utilities.ThreeColourLerp(Color.red, Color.yellow, Color.green, currentHealth / maxHealth);
     }
     void Update()
     {

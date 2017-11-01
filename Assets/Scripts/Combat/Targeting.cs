@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class AttackInRange : MonoBehaviour
+public class Targeting : MonoBehaviour
 {
 
     public GameObject weaponHit;

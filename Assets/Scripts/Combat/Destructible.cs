@@ -6,6 +6,7 @@ public class Destructible : MonoBehaviour {
 
     private UnitInfo info;
     public GameObject Corpse;
+    public List<GameObject> Corpses = new List<GameObject>();
     // Use this for initialization
     void Start()
     {
@@ -20,6 +21,10 @@ public class Destructible : MonoBehaviour {
         {
             Destroy(this.gameObject);
             GameObject.Instantiate(Corpse, transform.position, Quaternion.identity);
+            foreach(var corpse in Corpses)
+            {
+                GameObject.Instantiate(corpse, transform.position, Quaternion.identity);
+            }
         }
     }
 }

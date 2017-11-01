@@ -18,7 +18,7 @@ public class aiSupport : MonoBehaviour {
         warrens.Clear();
         foreach (var unit in Player.ActiveUnits)
         {
-            if (unit.GetComponent<UnitInfo>().Name.Contains("Goblin"))
+            if (unit.GetComponent<UnitInfo>().Name.Contains("Peasant"))
             {
                 goblins.Add(unit);
             }

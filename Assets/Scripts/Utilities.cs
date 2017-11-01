@@ -6,12 +6,12 @@ public static class Utilities
 {
     static Texture2D _whiteTexture;
 
-    public static Color ColorLerp3(Color a, Color b, Color c, float t)
+    public static Color ThreeColourLerp(Color A, Color B, Color C, float percentage)
     {
-        if (t < 0.5f)
-            return Color.Lerp(a, b, t / 0.5f);
+        if (percentage < 0.5f)
+            return Color.Lerp(A, B, percentage * 2f);
         else
-            return Color.Lerp(b, c, (t - 0.5f) / 0.5f);
+            return Color.Lerp(B, C, (percentage - 0.5f) * 2f);
     }
     public static RaycastHit? CheckMouseHit()
     {

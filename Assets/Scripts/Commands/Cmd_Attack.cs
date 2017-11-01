@@ -45,7 +45,7 @@ public class Cmd_Attack : Command
         relaxDistance = 5f;
         startingPoint = transform.position;
         agent = GetComponent<NavMeshAgent>();
-        Targeting = GetComponent<AttackInRange>();
+        Targeting = GetComponent<Targeting>();
     }
 
     public override void Delete()
@@ -67,7 +67,7 @@ public class Cmd_Attack : Command
         }
         commandManager.animator.Play(GetComponent<UnitAnimation>().CombatIdle.name);
         Targeting.Target = TargetUnit.GetComponent<UnitInfo>();
-        GetComponent<AttackInRange>().Aggressive = true;
+        GetComponent<Targeting>().Aggressive = true;
         agent.SetDestination(TargetUnit.transform.position);
     }
 

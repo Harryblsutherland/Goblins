@@ -31,7 +31,7 @@ public class Cmd_Follow : Command
     public override void Execute()
     {
         commandManager.animator.Play(GetComponent<UnitAnimation>().Walk.name);
-        GetComponent<AttackInRange>().Aggressive = false;
+        GetComponent<Targeting>().Aggressive = false;
         agent.SetDestination(followedUnit.transform.position);
         agent.isStopped = false;
         Targeting.Aggressive = false;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AIB_CreateBase : AIBehaviour {
 
-    public float cost = 200;
+    public float cost = 199;
 
     public int unitsPerBase = 6;
 

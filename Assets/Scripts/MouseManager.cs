@@ -85,7 +85,7 @@ public class MouseManager : MonoBehaviour {
     }
     private void SingleUnitSelected()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse0))
         {
             var es = UnityEngine.EventSystems.EventSystem.current;
             if (es != null && es.IsPointerOverGameObject())
