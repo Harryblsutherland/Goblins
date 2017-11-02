@@ -1860,25 +1860,16 @@ MonoBehaviour:
     Location: {fileID: 367709777}
     AccentColor: {r: 0.0064338297, g: 0.76717806, b: 0.875, a: 1}
     StartingUnits:
-    - {fileID: 1678663085784904, guid: 5105e467636f16f49b968f4ab2d88143, type: 2}
-    - {fileID: 1664034966409002, guid: 7b6f241fd6fbd054c965e21d7865a769, type: 2}
-    - {fileID: 1153288166000550, guid: c03c33bb6fd6a6345b4a283148279df2, type: 2}
-    - {fileID: 1330803821347032, guid: 8b511d756a1ecc84cb92611d7f7ffd14, type: 2}
-    - {fileID: 1289048179385576, guid: 41f7f07d59b99074ab25f445ecf3f964, type: 2}
-    - {fileID: 1001629294793044, guid: 336e8661f4a2b7449a890fdfff9c3d4d, type: 2}
-    - {fileID: 1537358338953114, guid: b37faf33c8cd4f84ab5c77ea15549442, type: 2}
-    - {fileID: 1286140530411416, guid: 3bf36c73d1ee9564fba868feb2aa5d74, type: 2}
-    - {fileID: 1840265062224774, guid: f41b9269e0211034d8396547131c86c5, type: 2}
-    - {fileID: 1295795365790768, guid: 5c91a1587fd48314ca79f475edded38c, type: 2}
+    - {fileID: 1711865537636562, guid: 0bd7fbfb997203c48ae626fb9d58d1fd, type: 2}
     IsAi: 0
-    Credits: 5000
+    Credits: 500
   - Name: p2
     Location: {fileID: 429719635}
     AccentColor: {r: 0.875, g: 0, b: 0, a: 1}
     StartingUnits:
     - {fileID: 1711865537636562, guid: 0bd7fbfb997203c48ae626fb9d58d1fd, type: 2}
     IsAi: 1
-    Credits: 400
+    Credits: 300
   MapCollider: {fileID: 394750957}
 --- !u!4 &594379248
 Transform:
