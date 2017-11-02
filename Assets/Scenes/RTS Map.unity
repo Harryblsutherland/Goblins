@@ -1459,13 +1459,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 367709776}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 460.8, y: 10.8, z: 35.2}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 459.67, y: 10.8, z: 42.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 374370842}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &374370841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,13 +1670,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 429719634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.9, y: 15.7, z: 459}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 36.9, y: 10.9, z: 459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 374370842}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1001 &452661648
 Prefab:
   m_ObjectHideFlags: 0
@@ -1861,15 +1861,19 @@ MonoBehaviour:
     AccentColor: {r: 0.0064338297, g: 0.76717806, b: 0.875, a: 1}
     StartingUnits:
     - {fileID: 1678663085784904, guid: 5105e467636f16f49b968f4ab2d88143, type: 2}
-    - {fileID: 1001629294793044, guid: 336e8661f4a2b7449a890fdfff9c3d4d, type: 2}
-    - {fileID: 1286140530411416, guid: 3bf36c73d1ee9564fba868feb2aa5d74, type: 2}
+    - {fileID: 1537358338953114, guid: b37faf33c8cd4f84ab5c77ea15549442, type: 2}
+    - {fileID: 1537358338953114, guid: b37faf33c8cd4f84ab5c77ea15549442, type: 2}
+    - {fileID: 1537358338953114, guid: b37faf33c8cd4f84ab5c77ea15549442, type: 2}
+    - {fileID: 1537358338953114, guid: b37faf33c8cd4f84ab5c77ea15549442, type: 2}
+    - {fileID: 1537358338953114, guid: b37faf33c8cd4f84ab5c77ea15549442, type: 2}
+    - {fileID: 1537358338953114, guid: b37faf33c8cd4f84ab5c77ea15549442, type: 2}
     IsAi: 0
     Credits: 500
   - Name: p2
     Location: {fileID: 429719635}
     AccentColor: {r: 0.875, g: 0, b: 0, a: 1}
     StartingUnits:
-    - {fileID: 1678663085784904, guid: 5105e467636f16f49b968f4ab2d88143, type: 2}
+    - {fileID: 1711865537636562, guid: 0bd7fbfb997203c48ae626fb9d58d1fd, type: 2}
     IsAi: 1
     Credits: 400
   MapCollider: {fileID: 394750957}
