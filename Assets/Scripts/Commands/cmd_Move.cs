@@ -51,7 +51,6 @@ public class Cmd_Move : Command
         commandManager.animator.Play(GetComponent<UnitAnimation>().Run.name);
         agent.SetDestination(destination);
         agent.isStopped = false;
-        Targeting.Target = null;
         Targeting.Aggressive = aggression;
     }
 

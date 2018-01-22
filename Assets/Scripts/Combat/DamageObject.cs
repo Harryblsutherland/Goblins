@@ -1,10 +1,19 @@
-﻿public class DamageObject
+﻿using UnityEngine;
+
+
+public enum DamageType
 {
-    public DamageObject( float prDamage,string prDamageType)
-    {
-        damage = prDamage;
-        prDamageType = damagetype;
-    }
+
+    Piercing,
+    Slashing,
+    Crushing,
+    Magic
+}
+
+[System.Serializable]
+public class DamageObject
+{
+
     public float damage;
-    public string damagetype;
+    public DamageType damagetype;
 }

@@ -24,8 +24,7 @@ public class AIB_AttackWave : AIBehaviour  {
             for (int i = 0; i < wave; i++)
             {
                 var Unit = ai.peasants[i];
-                var nav = Unit.GetComponent<RightClickNavigation>();
-                nav.SendToTarget(Player.Location.position);
+                Unit.GetComponent<CommandManager>().AddCommand(Cmd_Move.New(Unit.gameObject, RtsManager.Current.Players[0].Location.position, true));
             }
             return;
         }

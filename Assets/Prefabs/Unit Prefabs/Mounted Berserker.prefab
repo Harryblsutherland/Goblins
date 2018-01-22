@@ -1173,6 +1173,7 @@ GameObject:
   - component: {fileID: 114297790595078002}
   - component: {fileID: 114396838427653910}
   - component: {fileID: 114503443182732608}
+  - component: {fileID: 114437863920158386}
   m_Layer: 0
   m_Name: Mounted Berserker
   m_TagString: Unit
@@ -4015,6 +4016,26 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114437863920158386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1664034966409002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9fada124ece094894b11afdf9e8841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFindRange: 25
+  player:
+    Name: 
+    Location: {fileID: 0}
+    AccentColor: {r: 0, g: 0, b: 0, a: 0}
+    StartingUnits: []
+    IsAi: 0
+    Credits: 0
+  targetingType: 0
 --- !u!114 &114453259166352974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4189,15 +4210,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74616e7c144440847b87c1a457ff85cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageObject:
+  - damage: 15
+    damagetype: 1
   range: 8
   minRange: 0
   attackRate: 0.8
   attackTriggerPoint: 0.2
   attackDuration: 0.6
-  damage: 10
-  damageType: '"normal"'
-  attackanimation: 
   canAttack: 1
+  targetingType: 1
 --- !u!114 &114832162212178350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4234,9 +4256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f4355f7e1bbb143b3dab527fdde6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHit: {fileID: 1903846109274984, guid: 40f1cf55d5b0a634dbe9a1ddba75fc6e, type: 2}
   Weapons: []
-  findTargetDelay: 0.62
   attackFindRange: 20
   player:
     Name: 
@@ -4245,7 +4265,6 @@ MonoBehaviour:
     StartingUnits: []
     IsAi: 0
     Credits: 0
-  findTargetCounter: 0
 --- !u!135 &135715680631402320
 SphereCollider:
   m_ObjectHideFlags: 1

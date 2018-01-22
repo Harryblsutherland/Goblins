@@ -7,7 +7,6 @@ public class Melee_Weapon : Weapon {
 
     public override void Fire()
     {
-        base.Fire();
-        Target.RecieveDamage(damageObject);
+        Target.RecieveDamage(damageObject[0]);
     }
 }

@@ -24,6 +24,7 @@ public class StockManager : MonoBehaviour
             var nav = newUnit.AddComponent<RightClickNavigation>();
             newUnit.AddComponent<ActionSelect>();
             Destroy(prOldUnit);
+            Stockcount -= 1; 
         }
         else
         {

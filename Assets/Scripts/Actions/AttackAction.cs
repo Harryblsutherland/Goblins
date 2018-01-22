@@ -29,7 +29,11 @@ public class AttackAction : ActionBehaviour
             var hit = (RaycastHit)Utilities.CheckMouseHit();
             foreach (var Unit in MouseManager.Current.Selections)
             {
-
+                if(Unit.GetComponent<UnitInfo>().unitType == "Structure")
+                {
+                    continue;
+                }
+                Debug.Log(Unit);
                 switch (hit.transform.gameObject.tag)
                 {
                     case "Structure":

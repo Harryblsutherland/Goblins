@@ -8,6 +8,7 @@ public class UnitInfo : Interaction
 
     public string Name;
     public float maxHealth, currentHealth;
+    public float armour;
     bool show = false;
     public Sprite portraitImage;
     public string unitType;
@@ -31,7 +32,7 @@ public class UnitInfo : Interaction
     }
     public void RecieveDamage(DamageObject prAttack)
     {
-        currentHealth -= prAttack.damage;
+        currentHealth -= prAttack.damage - armour;
         healthBar.fillAmount = (currentHealth / maxHealth);
         healthBar.color = Utilities.ThreeColourLerp(Color.red, Color.yellow, Color.green, currentHealth / maxHealth);
     }

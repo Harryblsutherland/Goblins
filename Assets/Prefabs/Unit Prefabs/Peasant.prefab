@@ -925,7 +925,9 @@ GameObject:
   - component: {fileID: 114808746554309608}
   - component: {fileID: 114917587736698170}
   - component: {fileID: 114658112059213852}
+  - component: {fileID: 114025095789293890}
   - component: {fileID: 114317841762071494}
+  - component: {fileID: 114338897285102042}
   m_Layer: 0
   m_Name: Peasant
   m_TagString: Unit
@@ -3167,6 +3169,25 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114025095789293890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1678663085784904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b05a0353fe136fd40a886e4395a010fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 3
+  ButtonIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  buildingCost: 150
+  buildingPrefab: {fileID: 1040490145294058, guid: 8ecc6b9defe8d8044916cafad87d1cea,
+    type: 2}
+  maxBuildDistance: 30
+  GhostbuildingPrefab: {fileID: 1104972843032866, guid: c8558067726854749b491d54f06b5b61,
+    type: 2}
 --- !u!114 &114027339851074010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3220,15 +3241,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74616e7c144440847b87c1a457ff85cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageObject:
+  - damage: 6
+    damagetype: 2
   range: 8
   minRange: 0
   attackRate: 2
   attackTriggerPoint: 0.5
   attackDuration: 1
-  damage: 8
-  damageType: '"normal"'
-  attackanimation: Attack
   canAttack: 0
+  targetingType: 1
 --- !u!114 &114172356090523024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3325,7 +3347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05a0353fe136fd40a886e4395a010fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preferredIndex: 3
+  preferredIndex: 6
   ButtonIcon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   buildingCost: 200
   buildingPrefab: {fileID: 1834768151037476, guid: b41cee09e98e09741b29e059a30e567a,
@@ -3345,6 +3367,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1619989014496980}
+--- !u!114 &114338897285102042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1678663085784904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9fada124ece094894b11afdf9e8841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFindRange: 25
+  player:
+    Name: 
+    Location: {fileID: 0}
+    AccentColor: {r: 0, g: 0, b: 0, a: 0}
+    StartingUnits: []
+    IsAi: 0
+    Credits: 0
+  targetingType: 0
 --- !u!114 &114345928198418172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3356,9 +3398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f4355f7e1bbb143b3dab527fdde6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHit: {fileID: 1903846109274984, guid: 40f1cf55d5b0a634dbe9a1ddba75fc6e, type: 2}
   Weapons: []
-  findTargetDelay: 0.62
   attackFindRange: 20
   player:
     Name: 
@@ -3367,7 +3407,6 @@ MonoBehaviour:
     StartingUnits: []
     IsAi: 0
     Credits: 0
-  findTargetCounter: 0
 --- !u!114 &114426147477979148
 MonoBehaviour:
   m_ObjectHideFlags: 1

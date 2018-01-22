@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 114911141183992648}
   - component: {fileID: 114868485910690536}
   - component: {fileID: 114928263606634288}
+  - component: {fileID: 114544868755930278}
   m_Layer: 0
   m_Name: Mounted Infantry
   m_TagString: Unit
@@ -3810,15 +3811,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74616e7c144440847b87c1a457ff85cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageObject:
+  - damage: 10
+    damagetype: 1
   range: 8
   minRange: 0
   attackRate: 1.2
   attackTriggerPoint: 0.4
   attackDuration: 1
-  damage: 15
-  damageType: '"normal"'
-  attackanimation: 
   canAttack: 1
+  targetingType: 1
 --- !u!114 &114198119651485064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3921,6 +3923,26 @@ MonoBehaviour:
     StartingUnits: []
     IsAi: 0
     Credits: 0
+--- !u!114 &114544868755930278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153288166000550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9fada124ece094894b11afdf9e8841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFindRange: 25
+  player:
+    Name: 
+    Location: {fileID: 0}
+    AccentColor: {r: 0, g: 0, b: 0, a: 0}
+    StartingUnits: []
+    IsAi: 0
+    Credits: 0
+  targetingType: 0
 --- !u!114 &114551052791215138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3945,9 +3967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f4355f7e1bbb143b3dab527fdde6de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponHit: {fileID: 1903846109274984, guid: 40f1cf55d5b0a634dbe9a1ddba75fc6e, type: 2}
   Weapons: []
-  findTargetDelay: 0.62
   attackFindRange: 20
   player:
     Name: 
@@ -3956,7 +3976,6 @@ MonoBehaviour:
     StartingUnits: []
     IsAi: 0
     Credits: 0
-  findTargetCounter: 0
 --- !u!114 &114555911007930326
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,13 +6,14 @@ public abstract class Command : MonoBehaviour
 {
     public bool paused;
     public CommandManager commandManager;
-    public Targeting Targeting;
+    public TargetFinding Targeting;
+    
 
     public virtual void Awake()
     {
         paused = false;
         commandManager = GetComponent<CommandManager>();
-        Targeting = GetComponent<Targeting>();
+        Targeting = GetComponent<TargetFinding>();
     }
     public virtual void Pause()
     {

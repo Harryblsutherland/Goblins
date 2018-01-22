@@ -4,21 +4,17 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public DamageObject damageObject;
-
+    public List<DamageObject> damageObject = new List<DamageObject>();
     public float range;
     public float minRange;
     public float attackRate;
     public float attackTriggerPoint;
     public float attackDuration;
-    public float damage;
-    public string damageType;
-    public string attackanimation;
     public bool canAttack;
-    private float attackCounter;
-
-    private UnitInfo target;
-    private CommandManager commandManager;
+    public TargetingType targetingType;
+    protected float attackCounter;
+    protected UnitInfo target;
+    protected CommandManager commandManager;
 
     public UnitInfo Target
     {
@@ -32,6 +28,7 @@ public abstract class Weapon : MonoBehaviour
             target = value;
         }
     }
+
     private void Update()
     {
         if (canAttack)
@@ -49,13 +46,16 @@ public abstract class Weapon : MonoBehaviour
     public virtual void Start()
     {
         commandManager = GetComponent<CommandManager>();
-        damageObject = new DamageObject(damage, damageType);
     }
 
     public virtual void Attack()
     {
-        commandManager.InsertCommand(Cmd_AttackSwing.New(transform.gameObject, attackanimation, attackDuration, attackTriggerPoint, this));
-        canAttack = false;
+        if (canAttack)
+        {
+            commandManager.InsertCommand(Cmd_AttackSwing.New(transform.gameObject, attackDuration, attackTriggerPoint, this));
+            canAttack = false;
+
+        }
     }
 
     public virtual void Fire()

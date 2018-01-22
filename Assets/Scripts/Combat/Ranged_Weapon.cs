@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ranged_Weapon : MonoBehaviour {
+public class Ranged_Weapon : Weapon {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Projectile missle;
+    public GameObject shootPoint;
+    public float projectilespeed;
+    public override void Fire()
+    {
+
+        Projectile newprojectile = Instantiate(missle, shootPoint.transform.position, transform.rotation).GetComponent<Projectile>();
+
+        newprojectile.ShootingUnit = transform.gameObject;
+        newprojectile.Damage = damageObject[0];
+        newprojectile.speed = projectilespeed;
+        newprojectile.target = target;
+
+    }
 }
+
