@@ -30,8 +30,9 @@ public class MouseManager : MonoBehaviour {
         Current = this;
     }
 	// Update is called once per frame
-	void LateUpdate () {
-
+	void LateUpdate ()
+    {
+        CheckIfMiniMapIsClicked();
         SingleUnitSelected();
         CreateBox();
         addNewselections(NewSelections,selections);
@@ -39,6 +40,18 @@ public class MouseManager : MonoBehaviour {
         NewSelections.Clear();
 
 
+    }
+
+    private void CheckIfMiniMapIsClicked()
+    {
+        if (Map.Current.mouseIsOverMap && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Vector3 p = Map.Current.MapPositionToWorld(Input.mousePosition);
+            p.y = Camera.main.transform.position.y;
+            p.z -= 40;
+            Camera.main.transform.position = p;
+
+        }
     }
 
     private void checkforDeselection()

@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class CameraCradle : MonoBehaviour
 {
-
+    public static CameraCradle current;
     public float scrollspeed = 40;
     public float scrollratio = 40;
     public float borderbuffer = 25;
+    public float maxRotation = 55;
+    public float minRotation = 25;
+    public float zoomAngleBuffer = 10;
     public float maxHeight = 50;
     public float minHeight = 25;
     private float heightRayLength;
 
+
+
+
     // Use this for initialization
+
+    
     void Start()
     {
+        current = this;
         foreach ( var player in RtsManager.Current.Players)
         {
             if (player.IsAi)
@@ -29,7 +38,11 @@ public class CameraCradle : MonoBehaviour
             transform.position = pos;
         }
     }
-  
+    private void changeCameraRotation()
+    {
+
+        Camera.main.transform.eulerAngles = new Vector3(Mathf.Lerp(minRotation, maxRotation,((transform.position.y-minHeight) / (maxHeight - (minHeight + zoomAngleBuffer)))), 0, 0);
+    }
     void Update()
     {
         var pos = transform.position;
@@ -76,6 +89,7 @@ public class CameraCradle : MonoBehaviour
             transform.position = pos;
         }
 
+        changeCameraRotation();
 
     }
 }

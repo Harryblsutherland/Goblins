@@ -33,7 +33,7 @@ public class CameraLocationmanager : MonoBehaviour
             for (var i = 0; i < numbers.Count; i++)
             {
                 var pos = player.Location.position;
-                pos.y = 80;
+                pos.y = Camera.main.transform.position.y;
                 pos.z -= 50;
                 locations[i] = pos;
             }
@@ -53,7 +53,7 @@ public class CameraLocationmanager : MonoBehaviour
             {
                 if (Input.GetKeyDown(numbers[i]))
                 {
-                    locations[i] = Camera.main.transform.position;
+                    locations[i] = CameraCradle.current.transform.position;
                 }
             }
         }
@@ -63,8 +63,7 @@ public class CameraLocationmanager : MonoBehaviour
             {
                 if (Input.GetKeyDown(numbers[i]))
                 {
-                    Camera.main.transform.position = locations[i];
-                   // Camera.main.transform.localPosition = Vector3.MoveTowards(Camera.main.transform.localPosition, locations[i], 9999 * Time.deltaTime);
+                    CameraCradle.current.transform.position = new Vector3(locations[i].x, Camera.main.transform.position.y, locations[i].z);
                 }
             }
         }

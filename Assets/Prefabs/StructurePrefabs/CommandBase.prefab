@@ -608,7 +608,7 @@ MonoBehaviour:
   CreatedUnit: {fileID: 1678663085784904, guid: 5105e467636f16f49b968f4ab2d88143,
     type: 2}
   Cost: 50
-  BuildTime: 5
+  BuildTime: 1
 --- !u!114 &114497352397388392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -634,11 +634,16 @@ MonoBehaviour:
   Name: Warren
   maxHealth: 400
   currentHealth: 400
+  armour: 0
+  healthRegen: 0
+  upgradeKeys: []
   portraitImage: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
   unitType: Structure
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []

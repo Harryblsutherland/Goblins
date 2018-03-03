@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 114560206881801458}
   - component: {fileID: 114271701819599288}
   - component: {fileID: 114510232788264720}
+  - component: {fileID: 114986568190451710}
   m_Layer: 0
   m_Name: Stables
   m_TagString: Structure
@@ -205,7 +206,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834768151037476}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 457.82245, y: 10.214565, z: 33.182663}
+  m_LocalPosition: {x: 346.252, y: 3.9641838, z: 55.509098}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 4334572310733178}
@@ -546,8 +547,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preferredIndex: 0
   ButtonIcon: {fileID: 21300000, guid: 5f84d9fce59c39543a3ccff5c7bc92bd, type: 3}
-  Cost: 50
-  BuildTime: 20
+  Cost: 150
+  BuildTime: 1
 --- !u!114 &114289501475016480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -710,11 +711,16 @@ MonoBehaviour:
   Name: Stables
   maxHealth: 300
   currentHealth: 300
+  armour: 0
+  healthRegen: 0
+  upgradeKeys: []
   portraitImage: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
   unitType: Structure
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -769,6 +775,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f7604f61940e42b9cc67d9431aeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114986568190451710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834768151037476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16cc0bcb1fa0c240878fd215f1b5e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 7
+  ButtonIcon: {fileID: 21300000, guid: 749ee7d60bcb95440a79ae9ee70b21a4, type: 3}
+  Cost: 1
+  BuildTime: 1
+  UpgradeTiers:
+  - TeirName: Horse Upgrade Level One
+    upgrades:
+    - {fileID: 1966915237096610, guid: bc34b49088cf638448f514a5b3a450fc, type: 2}
+    - {fileID: 1426719300473050, guid: dbfc4240f5957bb4db7596ae5f6a0e80, type: 2}
+  - TeirName: Horse Upgrade Level Two
+    upgrades:
+    - {fileID: 1331400567548504, guid: 152eb15455440264e8726f0658aa0455, type: 2}
+    - {fileID: 1331400567548504, guid: c62d817a24269bc44a9e463d5e99c015, type: 2}
+  - TeirName: Horse Upgrade Level Three
+    upgrades:
+    - {fileID: 1331400567548504, guid: baffbaa326e964e42b6ed55695f3dbf6, type: 2}
+    - {fileID: 1331400567548504, guid: de592fd3c56aac446866c7f9d68782c3, type: 2}
+  UpgradeKey: horse
+  costIncrement: 0
+  buildTimeIncrement: 0
 --- !u!114 &114994817782864574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -847,8 +884,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -1.0245461, y: -0.024749756, z: -0.101371765}
-    m_Extent: {x: 1.1249139, y: 1.1227138, z: 0.69321096}
+    m_Center: {x: -1.0245457, y: -0.024749756, z: -0.101364136}
+    m_Extent: {x: 1.1249143, y: 1.1227138, z: 0.69321096}
   m_DirtyAABB: 0
 --- !u!183 &183437014401554986
 Cloth:

@@ -464,6 +464,7 @@ GameObject:
   - component: {fileID: 114035503458875374}
   - component: {fileID: 114128274444154814}
   - component: {fileID: 114867158804982688}
+  - component: {fileID: 114013821905491808}
   m_Layer: 0
   m_Name: Mounted ShieldsMan
   m_TagString: Unit
@@ -3788,6 +3789,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114013821905491808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289048179385576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dff5091bd21a0340950c0f33c1e06d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114035503458875374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3992,9 +4004,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74616e7c144440847b87c1a457ff85cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageObject:
-  - damage: 8
-    damagetype: 2
+  damageobject:
+    damage: 0
+    Piercing: 0
+    damagetype: 0
+  damageType: 0
+  damage: 8
+  ArmorPeircing: 0
+  attacks: 1
   range: 8
   minRange: 0
   attackRate: 2
@@ -4065,6 +4082,8 @@ MonoBehaviour:
   attackFindRange: 20
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -4125,6 +4144,8 @@ MonoBehaviour:
   attackFindRange: 25
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -4155,14 +4176,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dffb1d137fb3a548bad4a476a0e4c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Mounted Infantry
+  Name: Mounted Shieldsman
   maxHealth: 90
   currentHealth: 90
+  armour: 2
+  healthRegen: 0.5
+  upgradeKeys:
+  - horse
+  - shield
   portraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
   unitType: Unit
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []

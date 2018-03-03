@@ -52,6 +52,12 @@ public class CreateUnitAction : ActionBehaviour {
         newUnit.AddComponent<Player>().Info = Player;
         var nav = newUnit.AddComponent<RightClickNavigation>();
         newUnit.AddComponent<ActionSelect>();
+        // this section defines upgrades for newly created units
+        var unitInfo = newUnit.GetComponent<UnitInfo>();
+        foreach (var key in unitInfo.upgradeKeys)
+        {
+            Player.raceManager.GetUpgradeHandler(key).EquipUpgradeToUnit(newUnit);
+        }
         // This section defines the commands for newly created units.
         var commandManager = newUnit.GetComponent<CommandManager>();
         var unitInput = newUnit.GetComponent<UnitController>();

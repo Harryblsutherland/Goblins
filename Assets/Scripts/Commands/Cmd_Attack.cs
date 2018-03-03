@@ -68,7 +68,6 @@ public class Cmd_Attack : Command
         }
         commandManager.animator.Play(GetComponent<UnitAnimation>().CombatIdle.name);
         attackManager.Target = TargetUnit.GetComponent<UnitInfo>();
-        GetComponent<TargetFinding>().Aggressive = true;
         agent.SetDestination(TargetUnit.transform.position);
     }
 

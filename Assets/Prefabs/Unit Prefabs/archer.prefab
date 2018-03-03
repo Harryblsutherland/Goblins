@@ -493,7 +493,6 @@ GameObject:
   - component: {fileID: 195824779944938962}
   - component: {fileID: 114697742479576670}
   - component: {fileID: 114116593965490734}
-  - component: {fileID: 114614330345387392}
   - component: {fileID: 114721029775432650}
   - component: {fileID: 114399842459469188}
   - component: {fileID: 114613970249356214}
@@ -509,6 +508,7 @@ GameObject:
   - component: {fileID: 114102407652468564}
   - component: {fileID: 114508058713069670}
   - component: {fileID: 114122541588058586}
+  - component: {fileID: 114637111087340486}
   m_Layer: 0
   m_Name: archer
   m_TagString: Unit
@@ -3202,14 +3202,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dffb1d137fb3a548bad4a476a0e4c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Fighter
+  Name: Archer
   maxHealth: 60
   currentHealth: 60
+  armour: 0
+  healthRegen: 0.15
+  upgradeKeys:
+  - bow
   portraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
   unitType: Unit
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -3229,6 +3235,8 @@ MonoBehaviour:
   attackFindRange: 25
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -3444,7 +3452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commandQueue: []
   animator: {fileID: 0}
---- !u!114 &114614330345387392
+--- !u!114 &114637111087340486
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3452,10 +3460,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1347340188789634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd985e2871716134cb60d78a859b505f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dff5091bd21a0340950c0f33c1e06d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RelaxDistance: 5
 --- !u!114 &114697742479576670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3482,6 +3489,8 @@ MonoBehaviour:
   attackFindRange: 31
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -3523,9 +3532,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3674674defaa4f443be1863889c66daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageObject:
-  - damage: 10
+  damageobject:
+    damage: 0
+    Piercing: 0
     damagetype: 0
+  damageType: 0
+  damage: 8
+  ArmorPeircing: 0
+  attacks: 1
   range: 30
   minRange: 0
   attackRate: 1.5

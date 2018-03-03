@@ -20,7 +20,15 @@ public class StockManager : MonoBehaviour
                                                             prOldUnit.transform.position,
                                                             Quaternion.identity
                                                             );
+        
             newUnit.AddComponent<Player>().Info = prOldUnit.GetComponent<Player>().Info;
+            // this section defines upgrades for newly created units
+            var unitInfo = newUnit.GetComponent<UnitInfo>();
+            foreach(var key in unitInfo.upgradeKeys)
+            {
+                GetComponent<Player>().Info.raceManager.GetUpgradeHandler(key).EquipUpgradeToUnit(newUnit);
+            }
+
             var nav = newUnit.AddComponent<RightClickNavigation>();
             newUnit.AddComponent<ActionSelect>();
             Destroy(prOldUnit);

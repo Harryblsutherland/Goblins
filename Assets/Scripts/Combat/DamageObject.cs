@@ -3,7 +3,6 @@
 
 public enum DamageType
 {
-
     Piercing,
     Slashing,
     Crushing,
@@ -15,5 +14,12 @@ public class DamageObject
 {
 
     public float damage;
+    public float Piercing;
     public DamageType damagetype;
+
+    public DamageObject(float prDamage, float prPiercing, DamageType prDamageType)
+    {
+        damage = prDamage;
+        damagetype = prDamageType;
+    }
 }

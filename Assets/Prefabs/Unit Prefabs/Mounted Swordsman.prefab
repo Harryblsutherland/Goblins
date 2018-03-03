@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 114969123250481776}
   - component: {fileID: 114233242759635524}
   - component: {fileID: 114460934083668870}
+  - component: {fileID: 114957765540736686}
   m_Layer: 0
   m_Name: Mounted Swordsman
   m_TagString: Unit
@@ -3825,11 +3826,18 @@ MonoBehaviour:
   Name: Mounted Swordsman
   maxHealth: 70
   currentHealth: 70
+  armour: 0
+  healthRegen: 0.15
+  upgradeKeys:
+  - horse
+  - sword
   portraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
   unitType: Unit
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -3850,6 +3858,8 @@ MonoBehaviour:
   attackFindRange: 20
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -4001,6 +4011,8 @@ MonoBehaviour:
   attackFindRange: 25
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -4031,9 +4043,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74616e7c144440847b87c1a457ff85cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageObject:
-  - damage: 10
-    damagetype: 1
+  damageobject:
+    damage: 0
+    Piercing: 0
+    damagetype: 0
+  damageType: 0
+  damage: 12
+  ArmorPeircing: 0
+  attacks: 1
   range: 8
   minRange: 0
   attackRate: 1.2
@@ -4182,6 +4199,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
+--- !u!114 &114957765540736686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330803821347032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dff5091bd21a0340950c0f33c1e06d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114969123250481776
 MonoBehaviour:
   m_ObjectHideFlags: 1

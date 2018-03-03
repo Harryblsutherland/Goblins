@@ -1174,6 +1174,7 @@ GameObject:
   - component: {fileID: 114396838427653910}
   - component: {fileID: 114503443182732608}
   - component: {fileID: 114437863920158386}
+  - component: {fileID: 114682770488832140}
   m_Layer: 0
   m_Name: Mounted Berserker
   m_TagString: Unit
@@ -3872,11 +3873,18 @@ MonoBehaviour:
   Name: Mounted Berserker
   maxHealth: 70
   currentHealth: 70
+  armour: 0
+  healthRegen: 0.3
+  upgradeKeys:
+  - sword
+  - horse
   portraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
   unitType: Unit
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -4030,6 +4038,8 @@ MonoBehaviour:
   attackFindRange: 25
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -4137,6 +4147,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preferredIndex: 10
   ButtonIcon: {fileID: 21300000, guid: 38f18aabbd874c747a9e9c0538ecf8b6, type: 3}
+--- !u!114 &114682770488832140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1664034966409002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dff5091bd21a0340950c0f33c1e06d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114690372486390868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4210,9 +4231,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74616e7c144440847b87c1a457ff85cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageObject:
-  - damage: 15
-    damagetype: 1
+  damageobject:
+    damage: 0
+    Piercing: 0
+    damagetype: 0
+  damageType: 1
+  damage: 8
+  ArmorPeircing: 0
+  attacks: 2
   range: 8
   minRange: 0
   attackRate: 0.8
@@ -4260,6 +4286,8 @@ MonoBehaviour:
   attackFindRange: 20
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []

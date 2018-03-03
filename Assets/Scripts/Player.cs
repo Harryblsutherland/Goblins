@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
 	void Start()
 	{
 		Info.ActiveUnits.Add (this.gameObject);
+        
 	}
 
 	void OnDestroy()

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,13 +8,37 @@ public class UnitInfo : Interaction
 {
 
     public string Name;
-    public float maxHealth, currentHealth;
+    public float maxHealth;
+    public float currentHealth;
     public float armour;
+    public float healthRegen;
+    public List<string> upgradeKeys = new List<string>();
     bool show = false;
     public Sprite portraitImage;
     public string unitType;
     public Image healthBar;
     public PlayerSetupDefinition player;
+
+    private float currentHealthRegen;
+
+    public float MaxHealth
+    {
+        get
+        {
+            return maxHealth;
+        }
+
+        set
+        {
+            if (maxHealth < value)
+            {
+                currentHealth += value - maxHealth;
+                
+            }
+            maxHealth = value;
+            updateHealthBar();
+        }
+    }
 
     private void awake()
     {
@@ -23,7 +48,7 @@ public class UnitInfo : Interaction
     private void Start()
     {
         healthBar = transform.Find("Canvas/HealthBackGround/Health").GetComponent<Image>();
-        healthBar.color = Utilities.ThreeColourLerp(Color.red, Color.yellow, Color.green, currentHealth / maxHealth);
+        updateHealthBar();
     }
     public override void Select()
     {
@@ -33,11 +58,12 @@ public class UnitInfo : Interaction
     public void RecieveDamage(DamageObject prAttack)
     {
         currentHealth -= prAttack.damage - armour;
-        healthBar.fillAmount = (currentHealth / maxHealth);
-        healthBar.color = Utilities.ThreeColourLerp(Color.red, Color.yellow, Color.green, currentHealth / maxHealth);
+        updateHealthBar();
+
     }
     void Update()
     {
+        RegenHealth();
         if (!show)
         {
             return;
@@ -49,14 +75,38 @@ public class UnitInfo : Interaction
         InfoManager.Current.SetImage(portraitImage);
         InfoManager.Current.SetLines(
                                     Name,
-                                    maxHealth + " / " + currentHealth,
+                                    MaxHealth + " / " + Mathf.RoundToInt(currentHealth),
                                     GetComponent<Player>().Info.Name
                                     );
     }
+
+    private void RegenHealth()
+    {
+        if(currentHealth == MaxHealth && healthRegen > 0)
+        {
+            return;
+        }
+        currentHealthRegen += (healthRegen * Time.deltaTime);
+        if (currentHealthRegen > 1 || currentHealthRegen < -1)
+        {
+            currentHealth += currentHealthRegen;
+            currentHealthRegen = 0;
+            updateHealthBar();
+            if (currentHealth > MaxHealth)
+            {
+                currentHealth = MaxHealth;
+            }
+        }
+    }
+
     public override void Deselect()
     {
         show = false;
         InfoManager.Current.Clearbox();
     }
-
+    private void updateHealthBar()
+    {
+        healthBar.fillAmount = (currentHealth / MaxHealth);
+        healthBar.color = Utilities.ThreeColourLerp(Color.red, Color.yellow, Color.green, currentHealth / MaxHealth);
+    }
 }

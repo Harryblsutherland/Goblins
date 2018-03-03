@@ -7,6 +7,10 @@ public class Melee_Weapon : Weapon {
 
     public override void Fire()
     {
-        Target.RecieveDamage(damageObject[0]);
+        damageobject.damage = damage;
+        for(int i = 0;i < attacks; i++)
+        {
+            Target.RecieveDamage(damageobject);
+        }
     }
 }

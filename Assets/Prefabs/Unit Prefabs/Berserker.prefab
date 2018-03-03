@@ -711,6 +711,8 @@ GameObject:
   - component: {fileID: 114413383117211644}
   - component: {fileID: 114968451693278632}
   - component: {fileID: 114023880111540750}
+  - component: {fileID: 114089214991929678}
+  - component: {fileID: 114674729100043528}
   m_Layer: 0
   m_Name: Berserker
   m_TagString: Unit
@@ -3248,6 +3250,8 @@ MonoBehaviour:
   attackFindRange: 25
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -3269,11 +3273,39 @@ MonoBehaviour:
   attackFindRange: 20
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
     IsAi: 0
     Credits: 0
+--- !u!114 &114089214991929678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1537358338953114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50adf4a5a1b2df34eadace9470c139f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0
+  indefinite: 1
+  positive: 1
+  removable: 0
+  buffIcon: {fileID: 0}
+  statChanges:
+  - rawIncrease: 20
+    percentageIncrease: 0.5
+    stat: 0
+  - rawIncrease: 0
+    percentageIncrease: 0.2
+    stat: 0
+  - rawIncrease: 1
+    percentageIncrease: 0
+    stat: 0
 --- !u!114 &114158117992067014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3464,6 +3496,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
+--- !u!114 &114674729100043528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1537358338953114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dff5091bd21a0340950c0f33c1e06d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114751132171412408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3523,9 +3566,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74616e7c144440847b87c1a457ff85cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageObject:
-  - damage: 15
-    damagetype: 1
+  damageobject:
+    damage: 0
+    Piercing: 0
+    damagetype: 0
+  damageType: 1
+  damage: 7
+  ArmorPeircing: 0
+  attacks: 2
   range: 8
   minRange: 0
   attackRate: 0.8
@@ -3631,11 +3679,17 @@ MonoBehaviour:
   Name: Beserker
   maxHealth: 65
   currentHealth: 65
+  armour: 0
+  healthRegen: 0.3
+  upgradeKeys:
+  - sword
   portraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
   unitType: Unit
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []

@@ -6,7 +6,9 @@ public class PlayerSetupDefinition  {
 
 	public string Name;
 
-	public Transform Location;
+    public RaceManager raceManager;
+
+    public Transform Location;
 
 	public Color AccentColor;
 

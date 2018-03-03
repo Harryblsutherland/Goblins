@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 114698916142818602}
   - component: {fileID: 114167651363140416}
   - component: {fileID: 114336125496887906}
+  - component: {fileID: 114106268192983798}
   m_Layer: 0
   m_Name: ShieldSmith
   m_TagString: Structure
@@ -492,6 +493,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9f7604f61940e42b9cc67d9431aeac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114106268192983798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1251274511865992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16cc0bcb1fa0c240878fd215f1b5e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 8
+  ButtonIcon: {fileID: 21300000, guid: a8330a1d5cf14c8419d666600f150527, type: 3}
+  Cost: 1
+  BuildTime: 1
+  UpgradeTiers:
+  - TeirName: Sheild Tier One
+    upgrades:
+    - {fileID: 1966915237096610, guid: f6f5219616b616d4e93b56678d9cb8ad, type: 2}
+    - {fileID: 1966915237096610, guid: f9967e7dd7911a1449b0e0585e4a6e68, type: 2}
+  - TeirName: Sheild Tier Two
+    upgrades:
+    - {fileID: 1966915237096610, guid: 643378b564c3f114aa75ad3782ced9d0, type: 2}
+    - {fileID: 1966915237096610, guid: 0664c299d30127c4f856b6e843534e71, type: 2}
+  - TeirName: Sheild Tier Three
+    upgrades:
+    - {fileID: 1966915237096610, guid: 3c6bbc18f02b58c4aa705db11ee6c269, type: 2}
+    - {fileID: 1966915237096610, guid: 36a1b291684cb6f4eaf9bf3a0684d9b5, type: 2}
+  UpgradeKey: shield
+  costIncrement: 0
+  buildTimeIncrement: 0
 --- !u!114 &114131946069148596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,7 +551,7 @@ MonoBehaviour:
   preferredIndex: 0
   ButtonIcon: {fileID: 21300000, guid: 5f84d9fce59c39543a3ccff5c7bc92bd, type: 3}
   Cost: 25
-  BuildTime: 10
+  BuildTime: 1
 --- !u!114 &114181653191892440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -693,11 +725,16 @@ MonoBehaviour:
   Name: Warren
   maxHealth: 400
   currentHealth: 400
+  armour: 0
+  healthRegen: 0
+  upgradeKeys: []
   portraitImage: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
   unitType: Structure
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []

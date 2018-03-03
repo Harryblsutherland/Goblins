@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 114299840119459308}
   - component: {fileID: 114666306704509626}
   - component: {fileID: 114205553741110652}
+  - component: {fileID: 114510887763725110}
   m_Layer: 0
   m_Name: Bowyer
   m_TagString: Structure
@@ -495,11 +496,16 @@ MonoBehaviour:
   Name: Warren
   maxHealth: 400
   currentHealth: 400
+  armour: 0
+  healthRegen: 0
+  upgradeKeys: []
   portraitImage: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
   unitType: Structure
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -629,6 +635,37 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114510887763725110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040490145294058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16cc0bcb1fa0c240878fd215f1b5e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 8
+  ButtonIcon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  Cost: 25
+  BuildTime: 1
+  UpgradeTiers:
+  - TeirName: Bow Tier One
+    upgrades:
+    - {fileID: 1966915237096610, guid: 9a8ce4aed5c80b64c8407904a15e9a70, type: 2}
+    - {fileID: 1966915237096610, guid: 37704d46163e9de4cb019db1c3438842, type: 2}
+  - TeirName: Bow Tier Three
+    upgrades:
+    - {fileID: 1966915237096610, guid: 62bb7254cfffd3d47840f2e465e4777f, type: 2}
+    - {fileID: 1966915237096610, guid: c7682f0fcdd914747bf13ca67aebf795, type: 2}
+  - TeirName: Bow Tier Three
+    upgrades:
+    - {fileID: 1966915237096610, guid: bfca2125c355c2b49bf4ad6da19ddc15, type: 2}
+    - {fileID: 1966915237096610, guid: 328a26d62e160b146a88964b76ef7dc6, type: 2}
+  UpgradeKey: bow
+  costIncrement: 0
+  buildTimeIncrement: 0
 --- !u!114 &114607315516996498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -681,7 +718,7 @@ MonoBehaviour:
   preferredIndex: 0
   ButtonIcon: {fileID: 21300000, guid: 5f84d9fce59c39543a3ccff5c7bc92bd, type: 3}
   Cost: 50
-  BuildTime: 15
+  BuildTime: 1
 --- !u!114 &114762156817337884
 MonoBehaviour:
   m_ObjectHideFlags: 1

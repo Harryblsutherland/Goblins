@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 114868485910690536}
   - component: {fileID: 114928263606634288}
   - component: {fileID: 114544868755930278}
+  - component: {fileID: 114664440891234542}
   m_Layer: 0
   m_Name: Mounted Infantry
   m_TagString: Unit
@@ -3811,9 +3812,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74616e7c144440847b87c1a457ff85cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageObject:
-  - damage: 10
-    damagetype: 1
+  damageobject:
+    damage: 0
+    damagetype: 0
+  damageType: 1
+  damage: 12
+  attacks: 1
   range: 8
   minRange: 0
   attackRate: 1.2
@@ -3913,11 +3917,19 @@ MonoBehaviour:
   Name: Mounted Infantry
   maxHealth: 100
   currentHealth: 100
+  armour: 2
+  healthRegen: 1
+  upgradeKeys:
+  - shield
+  - sword
+  - horse
   portraitImage: {fileID: 21300000, guid: 052c5461307779c4d9ae0404920f9a3e, type: 3}
   unitType: Unit
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -3937,6 +3949,8 @@ MonoBehaviour:
   attackFindRange: 25
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -3971,6 +3985,8 @@ MonoBehaviour:
   attackFindRange: 20
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []
@@ -4029,6 +4045,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preferredIndex: 8
   ButtonIcon: {fileID: 21300000, guid: 13a564411d8eeef448894871cf87619a, type: 3}
+--- !u!114 &114664440891234542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153288166000550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dff5091bd21a0340950c0f33c1e06d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114682877468218982
 MonoBehaviour:
   m_ObjectHideFlags: 1

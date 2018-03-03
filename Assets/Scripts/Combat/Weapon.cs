@@ -4,7 +4,11 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public List<DamageObject> damageObject = new List<DamageObject>();
+    public DamageObject damageobject;
+    public DamageType damageType;
+    public float damage;
+    public float ArmorPeircing;
+    public int attacks;
     public float range;
     public float minRange;
     public float attackRate;
@@ -45,6 +49,9 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void Start()
     {
+        damageobject.damage = damage;
+        damageobject.damage = ArmorPeircing;
+        damageobject.damagetype = damageType;
         commandManager = GetComponent<CommandManager>();
     }
 

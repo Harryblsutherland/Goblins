@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 114155974543608488}
   - component: {fileID: 114453210966609964}
   - component: {fileID: 114073967727026404}
+  - component: {fileID: 114092041970840968}
   m_Layer: 0
   m_Name: blacksmith
   m_TagString: Structure
@@ -518,6 +519,37 @@ MonoBehaviour:
   - {fileID: 1330803821347032, guid: 8b511d756a1ecc84cb92611d7f7ffd14, type: 2}
   - {fileID: 1664034966409002, guid: 7b6f241fd6fbd054c965e21d7865a769, type: 2}
   - {fileID: 1153288166000550, guid: c03c33bb6fd6a6345b4a283148279df2, type: 2}
+--- !u!114 &114092041970840968
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838910080745990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16cc0bcb1fa0c240878fd215f1b5e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preferredIndex: 7
+  ButtonIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  Cost: 1
+  BuildTime: 1
+  UpgradeTiers:
+  - TeirName: Sword Upgrade One
+    upgrades:
+    - {fileID: 1966915237096610, guid: 61f8e1edd538de34db7b27ef36be41e8, type: 2}
+    - {fileID: 1966915237096610, guid: 90c851352e6c3e14eb9eac9c56c81cba, type: 2}
+  - TeirName: Sword Upgrade Two
+    upgrades:
+    - {fileID: 1966915237096610, guid: 2af0acd6db97c7744aa9340666f1445e, type: 2}
+    - {fileID: 1966915237096610, guid: 6f5a56f2894669a4db1958f62e87beeb, type: 2}
+  - TeirName: Sword Upgrade Three
+    upgrades:
+    - {fileID: 1966915237096610, guid: ff3813dba30a6b340839706f93dc55ea, type: 2}
+    - {fileID: 1966915237096610, guid: 9cd1f66120b25904f9100419fca7d3b5, type: 2}
+  UpgradeKey: sword
+  costIncrement: 0
+  buildTimeIncrement: 0
 --- !u!114 &114122597844538160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -708,11 +740,16 @@ MonoBehaviour:
   Name: Warren
   maxHealth: 250
   currentHealth: 250
+  armour: 0
+  healthRegen: 0
+  upgradeKeys: []
   portraitImage: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
   unitType: Structure
   healthBar: {fileID: 0}
   player:
     Name: 
+    raceManager:
+      UpgradeKeys: []
     Location: {fileID: 0}
     AccentColor: {r: 0, g: 0, b: 0, a: 0}
     StartingUnits: []

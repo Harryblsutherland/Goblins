@@ -33,7 +33,7 @@ public class AttackAction : ActionBehaviour
                 {
                     continue;
                 }
-                Debug.Log(Unit);
+                
                 switch (hit.transform.gameObject.tag)
                 {
                     case "Structure":

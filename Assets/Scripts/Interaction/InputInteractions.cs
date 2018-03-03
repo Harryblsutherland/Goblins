@@ -27,7 +27,10 @@ public class InputInteractions : Interaction
     {
         if (selected && Input.GetMouseButtonDown(1))
         {
-
+            if (Map.Current.mouseIsOverMap)
+            {
+                Controller.RightClickInSpace(Map.Current.MapPositionToWorld(Input.mousePosition));
+            }
             if (Utilities.CheckMouseHit() != null)
             {
                 var hit = (RaycastHit)Utilities.CheckMouseHit();
