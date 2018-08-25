@@ -72,10 +72,6 @@ MonoBehaviour:
   removable: 0
   buffIcon: {fileID: 21300000, guid: 749ee7d60bcb95440a79ae9ee70b21a4, type: 3}
   statChanges:
-  - rawIncrease: 0
-    percentageIncrease: 0.2
-    stat: 0
-  affectedUnit: {fileID: 0}
-  attackManager: {fileID: 0}
-  info: {fileID: 0}
-  movement: {fileID: 0}
+  - rawIncrease: 2
+    percentageIncrease: 0
+    stat: 3

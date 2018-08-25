@@ -72,6 +72,6 @@ MonoBehaviour:
   removable: 0
   buffIcon: {fileID: 21300000, guid: 749ee7d60bcb95440a79ae9ee70b21a4, type: 3}
   statChanges:
-  - rawIncrease: 2
-    percentageIncrease: 0
-    stat: 2
+  - rawIncrease: 0
+    percentageIncrease: 0.3
+    stat: 5

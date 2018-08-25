@@ -3,18 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum Stats
-{
-    MaxHealth,
-    Armor,
-    HealthRegen,
-    MoveSpeed,
-    AttackRange,
-    AttackSpeed,
-    AttackDamage,
-    AttackPiercing
 
-}
 
 [System.Serializable]
 public class StatChange

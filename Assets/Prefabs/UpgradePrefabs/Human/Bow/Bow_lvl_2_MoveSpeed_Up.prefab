@@ -74,4 +74,4 @@ MonoBehaviour:
   statChanges:
   - rawIncrease: 2
     percentageIncrease: 0
-    stat: 2
+    stat: 3

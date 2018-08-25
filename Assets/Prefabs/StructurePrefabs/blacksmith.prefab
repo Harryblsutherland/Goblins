@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 114453210966609964}
   - component: {fileID: 114073967727026404}
   - component: {fileID: 114092041970840968}
+  - component: {fileID: 114425093230925880}
   m_Layer: 0
   m_Name: blacksmith
   m_TagString: Structure
@@ -305,9 +306,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 2557662a4c484b842b8de8a78629945b, type: 2}
   m_StaticBatchInfo:
@@ -320,6 +323,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -337,9 +341,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: bf8341300f7ca604588db8475af26c7a, type: 2}
   m_StaticBatchInfo:
@@ -352,6 +358,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -369,9 +376,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -384,6 +393,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -401,9 +411,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 6565762b466af854db3eb4e0091f68f1, type: 2}
   m_StaticBatchInfo:
@@ -416,6 +428,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -481,6 +494,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114038129583822142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -532,8 +546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preferredIndex: 7
   ButtonIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  Cost: 1
-  BuildTime: 1
+  Cost: 90
+  BuildTime: 50
   UpgradeTiers:
   - TeirName: Sword Upgrade One
     upgrades:
@@ -548,8 +562,8 @@ MonoBehaviour:
     - {fileID: 1966915237096610, guid: ff3813dba30a6b340839706f93dc55ea, type: 2}
     - {fileID: 1966915237096610, guid: 9cd1f66120b25904f9100419fca7d3b5, type: 2}
   UpgradeKey: sword
-  costIncrement: 0
-  buildTimeIncrement: 0
+  costIncrement: 50
+  buildTimeIncrement: 25
 --- !u!114 &114122597844538160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -662,6 +676,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eccfdc93831387d4f82499f8c6dc75c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114425093230925880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838910080745990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4574d96a920f4464f843556332c2d3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114453210966609964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -676,7 +701,7 @@ MonoBehaviour:
   preferredIndex: 0
   ButtonIcon: {fileID: 21300000, guid: 5f84d9fce59c39543a3ccff5c7bc92bd, type: 3}
   Cost: 25
-  BuildTime: 10
+  BuildTime: 9
 --- !u!114 &114535791741331704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -737,10 +762,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dffb1d137fb3a548bad4a476a0e4c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Corpses: []
   Name: Warren
   maxHealth: 250
   currentHealth: 250
-  armour: 0
+  armour: 3
   healthRegen: 0
   upgradeKeys: []
   portraitImage: {fileID: 21300000, guid: df23ed08141ad3f4cbd2ffd9d18dc49f, type: 3}
@@ -841,9 +867,11 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 2557662a4c484b842b8de8a78629945b, type: 2}
   m_StaticBatchInfo:
@@ -856,6 +884,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -895,7 +924,6 @@ Cloth:
   m_Friction: 0.5
   m_CollisionMassScale: 0
   m_UseContinuousCollision: 1
-  m_UseVirtualParticles: 1
   m_SolverFrequency: 120
   m_SleepThreshold: 0.1
   m_Coefficients:
@@ -1039,6 +1067,17 @@ Cloth:
   - {fileID: 136719630316131640}
   - {fileID: 136719630316131640}
   m_SphereColliders: []
+  m_SelfCollisionDistance: 0
+  m_SelfCollisionStiffness: 1
+  m_SelfAndInterCollisionIndices: 
+  m_VirtualParticleWeights:
+  - {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  - {x: 0.6666667, y: 0.16666667, z: 0.16666667}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+  - {x: 0.6666667, y: 0.16666667, z: 0.16666667}
+  - {x: 0.5, y: 0.5, z: 0}
+  m_VirtualParticleIndices: 
 --- !u!208 &208303373011037470
 NavMeshObstacle:
   m_ObjectHideFlags: 1

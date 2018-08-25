@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Workhorse
-  upgradeIcon: {fileID: 21300000, guid: 749ee7d60bcb95440a79ae9ee70b21a4, type: 3}
+  upgradeIcon: {fileID: 21300000, guid: d97c6919bdbdd9b40ab9c81b45f20fd1, type: 3}
   statuseffect: {fileID: 0}
 --- !u!114 &114635011188577136
 MonoBehaviour:
@@ -70,7 +70,7 @@ MonoBehaviour:
   indefinite: 1
   positive: 1
   removable: 0
-  buffIcon: {fileID: 21300000, guid: 749ee7d60bcb95440a79ae9ee70b21a4, type: 3}
+  buffIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   statChanges:
   - rawIncrease: 2
     percentageIncrease: 0

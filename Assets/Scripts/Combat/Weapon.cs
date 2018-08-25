@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    protected UnitTriggerHandler TriggerHandler;
     public DamageObject damageobject;
     public DamageType damageType;
     public float damage;
@@ -52,6 +53,8 @@ public abstract class Weapon : MonoBehaviour
         damageobject.damage = damage;
         damageobject.damage = ArmorPeircing;
         damageobject.damagetype = damageType;
+        damageobject.originObject = gameObject;
+        TriggerHandler = GetComponent<UnitTriggerHandler>();
         commandManager = GetComponent<CommandManager>();
     }
 
@@ -68,6 +71,7 @@ public abstract class Weapon : MonoBehaviour
     public virtual void Fire()
     {
 
+        TriggerHandler.FireTriggerList(Triggers.OnAttack, gameObject, target.gameObject);
     }
 
 

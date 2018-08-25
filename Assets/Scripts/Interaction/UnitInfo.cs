@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UnitInfo : Interaction
 {
-
+    public List<GameObject> Corpses = new List<GameObject>();
     public string Name;
     public float maxHealth;
     public float currentHealth;
@@ -18,7 +18,8 @@ public class UnitInfo : Interaction
     public string unitType;
     public Image healthBar;
     public PlayerSetupDefinition player;
-
+    private UnitTriggerHandler triggerHandler;
+    private UnitInfo info;
     private float currentHealthRegen;
 
     public float MaxHealth
@@ -33,7 +34,7 @@ public class UnitInfo : Interaction
             if (maxHealth < value)
             {
                 currentHealth += value - maxHealth;
-                
+
             }
             maxHealth = value;
             updateHealthBar();
@@ -47,8 +48,10 @@ public class UnitInfo : Interaction
 
     private void Start()
     {
+        triggerHandler = GetComponent<UnitTriggerHandler>();
         healthBar = transform.Find("Canvas/HealthBackGround/Health").GetComponent<Image>();
         updateHealthBar();
+
     }
     public override void Select()
     {
@@ -60,7 +63,16 @@ public class UnitInfo : Interaction
         currentHealth -= prAttack.damage - armour;
         updateHealthBar();
 
+        triggerHandler.FireTriggerList(Triggers.OnAttack, prAttack.originObject, gameObject);
+
+        if (currentHealth <= 0)
+        {
+            OnDeath();
+            triggerHandler.FireTriggerList(Triggers.OnDeath, prAttack.originObject, gameObject);
+            prAttack.originObject.GetComponent<UnitTriggerHandler>().FireTriggerList(Triggers.OnDeath, prAttack.originObject, gameObject);
+        }
     }
+
     void Update()
     {
         RegenHealth();
@@ -82,7 +94,7 @@ public class UnitInfo : Interaction
 
     private void RegenHealth()
     {
-        if(currentHealth == MaxHealth && healthRegen > 0)
+        if (currentHealth == MaxHealth && healthRegen > 0)
         {
             return;
         }
@@ -92,13 +104,25 @@ public class UnitInfo : Interaction
             currentHealth += currentHealthRegen;
             currentHealthRegen = 0;
             updateHealthBar();
+            if (currentHealth <= 0)
+            {
+                currentHealth = 1;
+            }
             if (currentHealth > MaxHealth)
             {
                 currentHealth = MaxHealth;
             }
         }
     }
+    private void OnDeath()
+    {
+        Destroy(this.gameObject);
+        foreach (var corpse in Corpses)
+        {
+            GameObject.Instantiate(corpse, transform.position, Quaternion.identity);
+        }
 
+    }
     public override void Deselect()
     {
         show = false;

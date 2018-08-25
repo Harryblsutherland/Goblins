@@ -12,7 +12,7 @@ public enum DamageType
 [System.Serializable]
 public class DamageObject
 {
-
+    public GameObject originObject;
     public float damage;
     public float Piercing;
     public DamageType damagetype;
